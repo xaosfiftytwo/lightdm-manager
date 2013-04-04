@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=System;
+Comment=Manager for LightDM
+Exec=/usr/bin/lightdm-manager
+Icon=/usr/share/lightdm-manager/logo.png
+Name=LightDM Manager
+StartupNotify=true
+Terminal=false
+Type=Application

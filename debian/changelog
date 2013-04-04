@@ -1,0 +1,23 @@
+lightdm-manager (0.0.7) debian; urgency=low
+
+  * Fixed theme selection
+
+ -- Schoelje <schoelje@solydxk.com>  Tue, 26 Mar 2013 17:00:00 +0100
+
+lightdm-manager (0.0.5) debian; urgency=low
+
+  * Include theme selection
+
+ -- Schoelje <schoelje@solydxk.com>  Tue, 26 Mar 2013 10:00:00 +0100
+
+lightdm-manager (0.0.2) debian; urgency=low
+
+  * Check if lightdm is installed
+
+ -- Schoelje <schoelje@solydxk.com>  Mon, 25 Mar 2013 23:00:00 +0100
+
+lightdm-manager (0.0.1) debian; urgency=low
+
+  * Initial version
+
+ -- Schoelje <schoelje@solydxk.com>  Mon, 25 Mar 2013 22:00:00 +0100

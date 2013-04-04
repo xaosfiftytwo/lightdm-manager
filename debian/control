@@ -1,0 +1,15 @@
+Source: lightdm-manager
+Section: admin
+Priority: optional
+Maintainer: Schoelje <schoelje@solydxk.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: lightdm-manager
+Architecture: all
+Installed-Size: 127
+Depends: python
+Section: admin
+Priority: optional
+Homepage: http://solydxk.com/
+Description: Manager for LightDM.
