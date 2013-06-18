@@ -1,3 +1,28 @@
+lightdm-manager (0.1.2) debian; urgency=low
+
+  * Added German translation
+  * Make GUI objects size with textual contents
+
+ -- Schoelje <schoelje@solydxk.com>  Wed, 12 Jun 2013 15:00:00 +0100
+
+lightdm-manager (0.1.1) debian; urgency=low
+
+  * Added Catalan translation
+
+ -- Schoelje <schoelje@solydxk.com>  Wed, 05 Jun 2013 19:00:00 +0100
+
+lightdm-manager (0.1.0) debian; urgency=low
+
+  * Moved translations to standard directory /usr/share/locale
+
+ -- Schoelje <schoelje@solydxk.com>  Wed, 06 Jun 2013 10:00:00 +0100
+
+lightdm-manager (0.0.9) debian; urgency=low
+
+  * Included Spanish and Dutch translations
+
+ -- Schoelje <schoelje@solydxk.com>  Tue, 28 May 2013 23:00:00 +0100
+
 lightdm-manager (0.0.7) debian; urgency=low
 
   * Fixed theme selection
