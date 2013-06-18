@@ -7,8 +7,12 @@ import getopt
 import sys
 import string
 import gtk
+import gettext
 from logger import Logger
 from dialogs import MessageDialogSave
+
+# i18n
+gettext.install("lightdm-manager", "/usr/share/locale")
 
 
 # Help
@@ -50,13 +54,13 @@ functions.log = log
 if debug:
     if os.path.isfile(log.logPath):
         open(log.logPath, 'w').close()
-    log.write('Write debug information to file: %s' % log.logPath, 'main', 'info')
+    log.write(_("Write debug information to file: %(path)s") % { "path": log.logPath }, 'main', 'info')
 
 # Log some basic environmental information
 machineInfo = functions.getSystemVersionInfo()
-log.write('Machine info: %s' % machineInfo, 'main', 'info')
+log.write(_("Machine info: %(info)s") % { "info": machineInfo }, 'main', 'info')
 version = functions.getPackageVersion('lightdm-manager')
-log.write('lightdm-manager version: %s' % version, 'main', 'info')
+log.write(_("lightdm-manager version: %(version)s") % { "version": version }, 'main', 'info')
 
 if functions.isPackageInstalled('lightdm'):
     # Set variables
@@ -79,26 +83,25 @@ if functions.isPackageInstalled('lightdm'):
             # Add launcher string, only when not root
             launcher = ''
             if os.geteuid() > 0:
+                launcher = "gksu --message \"<b>%s</b>\"" % _("Please enter your password")
                 if os.path.exists('/usr/bin/kdesudo'):
-                    launcher = 'kdesudo -i /usr/share/lightdm-manager/logo.png -d --comment "<b>Please enter your password</b>"'
-                elif os.path.exists('/usr/bin/gksu'):
-                    launcher = 'gksu --message "<b>Please enter your password</b>"'
+                    launcher = "kdesudo -i /usr/share/lightdm-manager/logo.png -d --comment \"<b>%s</b>\"" % _("Please enter your password")
 
             cmd = '%s python %s' % (launcher, dpmPath)
-            log.write('Startup command: ' + cmd, 'main', 'debug')
+            log.write(_("Startup command: %(cmd)s") % { "cmd": cmd }, 'main', 'debug')
             os.system(cmd)
         else:
-            title = 'LightDM Manager - Live environment'
-            msg = 'LightDM Manager cannot run in a live environment\n\nTo force start, use the --force argument'
+            title = _("LightDM Manager - Live environment")
+            msg = _("LightDM Manager cannot run in a live environment\n\nTo force start, use the --force argument")
             MessageDialogSave(title, msg, gtk.MESSAGE_INFO).show()
             log.write(msg, 'main', 'warning')
     else:
-        title = 'LightDM Manager - Debian based'
-        msg = 'LightDM Manager can only run on Debian based distributions'
+        title = _("LightDM Manager - Debian based")
+        msg = _("LightDM Manager can only run on Debian based distributions")
         MessageDialogSave(title, msg, gtk.MESSAGE_WARNING).show()
         log.write(msg, 'main', 'warning')
 else:
-    title = 'LightDM Manager'
-    msg = 'LightDM not installed - quitting.'
+    title = _("LightDM Manager")
+    msg = _("LightDM not installed - quitting.")
     MessageDialogSave(title, msg, gtk.MESSAGE_WARNING).show()
     log.write(msg, 'main', 'warning')

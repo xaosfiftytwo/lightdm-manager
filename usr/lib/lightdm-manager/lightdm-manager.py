@@ -10,6 +10,7 @@ try:
     import string
     import getopt
     import shutil
+    import gettext
     from treeview import TreeViewHandler
     from dialogs import MessageDialogSave, QuestionDialog
     from config import Config
@@ -25,6 +26,9 @@ desktopbaseDir = '/usr/share/images/desktop-base'
 themeDir = '/usr/share/themes'
 themeDirLocal = '~/.local/share/themes'
 
+# i18n
+gettext.install("lightdm-manager", "/usr/share/locale")
+
 #class for the main window
 class LightDMManager:
 
@@ -39,6 +43,7 @@ class LightDMManager:
         self.lblMenuSubTitle = self.builder.get_object('lblMenuSubTitle')
         self.lblMenuUsers = self.builder.get_object('lblMenuUsers')
         self.lblMenuBackground = self.builder.get_object('lblMenuBackground')
+        self.lblBackground = self.builder.get_object('lblBackground')
         self.ebTitle = self.builder.get_object('ebTitle')
         self.ebMenu = self.builder.get_object('ebMenu')
         self.ebMenuUsers = self.builder.get_object('ebMenuUsers')
@@ -59,6 +64,12 @@ class LightDMManager:
         self.clrMenuSelect = gtk.gdk.Color(self.cfg.getValue('COLORS', 'menu_select'))
         self.clrMenuHover = gtk.gdk.Color(self.cfg.getValue('COLORS', 'menu_hover'))
         self.clrMenuBg = gtk.gdk.Color(self.cfg.getValue('COLORS', 'menu_bg'))
+
+        # Translations
+        self.lblMenuUsers.set_text(_("Users"))
+        self.lblMenuBackground.set_text(_("Appearance"))
+        self.lblBackground.set_text(_("Background"))
+        self.btnSave.set_label(_("Save"))
 
         # Get current background image
         self.cfgGreeter = Config(greeterConf)
@@ -140,7 +151,7 @@ class LightDMManager:
             self.saveSettings(None, menuItems[1])
             self.changeMenuBackground(menuItems[0], True)
             self.lblMenuTitle.set_text(self.lblMenuUsers.get_text())
-            self.lblMenuSubTitle.set_text('Auto-login')
+            self.lblMenuSubTitle.set_text(_("Auto-login"))
             self.boxBackground.hide()
             self.swUsers.show()
 
@@ -149,7 +160,7 @@ class LightDMManager:
             self.saveSettings(None, menuItems[0])
             self.changeMenuBackground(menuItems[1], True)
             self.lblMenuTitle.set_text(self.lblMenuBackground.get_text())
-            self.lblMenuSubTitle.set_text('Theme')
+            self.lblMenuSubTitle.set_text(_("Theme"))
             self.boxBackground.show()
             self.swUsers.hide()
 
@@ -163,7 +174,7 @@ class LightDMManager:
 
         if menuItem == menuItems[0]:
             if self.currentAutoUser != self.newAutoUser:
-                qd = QuestionDialog('Auto-login user', 'The auto-login user has changed\n\nDo you want to save the new settings?', self.window)
+                qd = QuestionDialog(_("Auto-login user"), _("The auto-login user has changed\n\nDo you want to save the new settings?"), self.window)
                 answer = qd.show()
                 if answer:
                     if self.newAutoUser is not None:
@@ -171,14 +182,14 @@ class LightDMManager:
                         self.cfgLightdm.setValue('SeatDefaults', 'autologin-user', self.newAutoUser)
                         self.cfgLightdm.setValue('SeatDefaults', 'autologin-user-timeout', '0')
                         self.currentAutoUser = self.newAutoUser
-                        MessageDialogSave('Saved', 'Auto-login user saved:\n\n%s' % self.currentAutoUser, gtk.MESSAGE_INFO, self.window).show()
-                        self.log.write("New auto-login user: %s" % self.currentAutoUser, 'LightDMManager.saveSettings', 'info')
+                        MessageDialogSave(_("Saved"), _("Auto-login user saved:\n\n%(usr)s") % { "usr": self.currentAutoUser }, gtk.MESSAGE_INFO, self.window).show()
+                        self.log.write(_("New auto-login user: %(usr)s") % { "usr": self.currentAutoUser }, 'LightDMManager.saveSettings', 'info')
                     else:
                         self.cfgLightdm.removeOption('SeatDefaults', 'autologin-user')
                         self.cfgLightdm.removeOption('SeatDefaults', 'autologin-user-timeout')
                         self.currentAutoUser = None
-                        MessageDialogSave('Saved', 'Auto-login has been disabled.', gtk.MESSAGE_INFO, self.window).show()
-                        self.log.write("Auto-login disabled", 'LightDMManager.saveSettings', 'info')
+                        MessageDialogSave(_("Saved"), _("Auto-login has been disabled."), gtk.MESSAGE_INFO, self.window).show()
+                        self.log.write(_("Auto-login disabled"), 'LightDMManager.saveSettings', 'info')
                 else:
                     self.fillUsers()
 
@@ -191,7 +202,7 @@ class LightDMManager:
                 theme = True
 
             if bg or theme:
-                qd = QuestionDialog('Appearance', 'Appearance settings have changed\n\nDo you want to save these new settings?', self.window)
+                qd = QuestionDialog(_("Appearance"), _("Appearance settings have changed\n\nDo you want to save these new settings?"), self.window)
                 answer = qd.show()
                 if answer:
                     msg = ''
@@ -199,7 +210,7 @@ class LightDMManager:
                         # Save background
                         self.cfgGreeter.setValue('greeter', 'theme-name', self.newTheme)
                         self.currentTheme = self.newTheme
-                        msg = "Theme: %s" % self.currentTheme
+                        msg = _("Theme: %(theme)s") % { "theme": self.currentTheme }
                     if bg:
                         if os.path.exists(self.newbgImg):
                             # Save background
@@ -207,9 +218,9 @@ class LightDMManager:
                             self.currentbgImg = self.newbgImg
                             if msg != '':
                                 msg += '\n'
-                            msg += "Background: %s" % self.currentbgImg
+                            msg += _("Background: %(bg)s") % { "bg": self.currentbgImg }
 
-                    MessageDialogSave('Saved', 'LightDM appearance saved:\n\n%s' % msg, gtk.MESSAGE_INFO, self.window).show()
+                    MessageDialogSave(_("Saved"), _("LightDM appearance saved:\n\n%(msg)s") % { "msg": msg }, gtk.MESSAGE_INFO, self.window).show()
                     self.log.write(msg, 'LightDMManager.saveSettings', 'info')
                 else:
                     if self.currentTheme is not None:
@@ -218,12 +229,12 @@ class LightDMManager:
                     if os.path.exists(self.currentbgImg):
                         self.imgBackground.set_from_pixbuf(gtk.gdk.pixbuf_new_from_file_at_size(self.currentbgImg, self.imgBgWidth, self.imgBgHeight))
                         self.fleChooser.set_filename(self.currentbgImg)
-                        self.log.write("Current background: %s" % self.currentbgImg, 'LightDMManager.saveSettings', 'info')
+                        self.log.write(_("Current background: %(bg)s") % { "bg": self.currentbgImg }, 'LightDMManager.saveSettings', 'info')
                     else:
                         self.imgBackground.set_from_file(os.path.join(self.scriptDir, '../../share/lightdm-manager/empty.png'))
                         self.fleChooser.set_filename('')
                         self.fleChooser.set_current_folder(desktopbaseDir)
-                        self.log.write("No background set", 'LightDMManager.saveSettings', 'info')
+                        self.log.write(_("No background set"), 'LightDMManager.saveSettings', 'info')
 
     # This method is fired by the TreeView.checkbox-toggled event
     def usersCheckBoxToggled(self, obj, path, colNr, toggleValue):
@@ -239,7 +250,7 @@ class LightDMManager:
             self.prevPath = path
             # Save selected user
             self.newAutoUser = user
-            self.log.write("Auto-login user selected: %s" % user, 'LightDMManager.usersCheckBoxToggled', 'info')
+            self.log.write(_("Auto-login user selected: %(usr)s") % { "usr": user }, 'LightDMManager.usersCheckBoxToggled', 'info')
         elif self.prevPath == path and not toggleValue:
             self.newAutoUser = None
             functions.pushMessage(self.statusbar, "")
@@ -248,7 +259,7 @@ class LightDMManager:
         self.newbgImg = self.fleChooser.get_filename()
         if os.path.exists(self.newbgImg) and self.newbgImg != self.currentbgImg:
             self.imgBackground.set_from_pixbuf(gtk.gdk.pixbuf_new_from_file_at_size(self.newbgImg, self.imgBgWidth, self.imgBgHeight))
-            self.log.write("New background: %s" % self.newbgImg, 'LightDMManager.chooseFile', 'info')
+            self.log.write(_("New background: %(bg)s") % { "bg": self.newbgImg }, 'LightDMManager.chooseFile', 'info')
 
     def chooseTheme(self, widget):
         chosenDir = self.fleChooserTheme.get_filename()
@@ -257,10 +268,10 @@ class LightDMManager:
         if chosenTheme != '':
             if chosenTheme != self.currentTheme:
                 self.newTheme = chosenTheme
-                self.log.write("New theme: %s" % self.newTheme, 'LightDMManager.chooseTheme', 'info')
+                self.log.write(_("New theme: %(theme)s") % { "theme": self.newTheme }, 'LightDMManager.chooseTheme', 'info')
         else:
-            MessageDialogSave('No Theme', 'Directory does not contain a valid theme engine:\n\nPlease, choose another theme.', gtk.MESSAGE_WARNING, self.window).show()
-            self.log.write("No valid theme: %s" % chosenDir, 'LightDMManager.chooseTheme', 'info')
+            MessageDialogSave(_("No Theme"), _("Directory does not contain a valid theme engine:\n\nPlease, choose another theme."), gtk.MESSAGE_WARNING, self.window).show()
+            self.log.write(_("No valid theme: %(dir)s") % { "dir": chosenDir }, 'LightDMManager.chooseTheme', 'info')
             self.fleChooserTheme.set_current_folder(self.curThemeDir)
 
     def getGtkTheme(self, startDir, themeName=None):
@@ -276,7 +287,7 @@ class LightDMManager:
                     break
                 newThemeDir += "%s/" % d
                 newThemeName = d
-            self.log.write('Found themedir: %s and theme name: %s' % (newThemeDir, "%s" % newThemeName), 'LightDMManager.getGtkTheme', 'debug')
+            self.log.write(_("Found themedir: %(dir)s and theme name: %(theme)s") % { "dir": newThemeDir, "theme": newThemeName }, 'LightDMManager.getGtkTheme', 'debug')
 
             if themeName is None:
                 break
@@ -332,10 +343,10 @@ class LightDMManager:
         # Backup config files because ConfigParser does not preserve commented lines
         if not os.path.exists("%s.org" % greeterConf):
             shutil.copy(greeterConf, "%s.org" % greeterConf)
-            self.log.write('%s copied to %s' % (greeterConf, "%s.org" % greeterConf), 'LightDMManager.main', 'debug')
+            self.log.write(_("%(conf1)s copied to %(conf2)s.org") % { "conf1": greeterConf, "conf2": greeterConf }, 'LightDMManager.main', 'debug')
         if not os.path.exists("%s.org" % lightdmConf):
             shutil.copy(lightdmConf, "%s.org" % lightdmConf)
-            self.log.write('%s copied to %s' % (lightdmConf, "%s.org" % lightdmConf), 'LightDMManager.main', 'debug')
+            self.log.write(_("%(conf1)s copied to %(conf2)s.org") % { "conf1": lightdmConf, "conf2": lightdmConf }, 'LightDMManager.main', 'debug')
 
         # Initiate the treeview handler and connect the custom toggle event with usersCheckBoxToggled
         self.tvHandler = TreeViewHandler(self.log, self.tvUsers)
@@ -365,7 +376,7 @@ class LightDMManager:
             self.fleChooser.set_filename(self.currentbgImg)
         #self.fleChooser.set_default_response(gtk.RESPONSE_OK)
         fleFilter = gtk.FileFilter()
-        fleFilter.set_name("Images")
+        fleFilter.set_name(_("Images"))
         fleFilter.add_mime_type("image/png")
         fleFilter.add_mime_type("image/jpeg")
         fleFilter.add_mime_type("image/gif")
@@ -379,16 +390,16 @@ class LightDMManager:
         # TODO: get dir path with correct case
         self.curThemeDir = themeDir
         if self.currentTheme is not None:
-            self.log.write('Search %s in %s' % (self.currentTheme, themeDir), 'LightDMManager.main', 'debug')
+            self.log.write(_("Search %(theme)s in %(dir)s") % { "theme": self.currentTheme, "dir": themeDir }, 'LightDMManager.main', 'debug')
             themeInfo = self.getGtkTheme(themeDir, self.currentTheme)
             if themeInfo[0] == '':
-                self.log.write('Search %s in %s' % (self.currentTheme, themeDirLocal), 'LightDMManager.main', 'debug')
+                self.log.write(_("Search %(theme)s in %(dir)s") % { "theme": self.currentTheme, "dir": themeDirLocal }, 'LightDMManager.main', 'debug')
                 themeInfo = self.getGtkTheme(themeDirLocal, self.currentTheme)
                 if themeInfo[0] != '':
                     self.curThemeDir = themeInfo[0]
             else:
                 self.curThemeDir = themeInfo[0]
-        self.log.write('Current theme directory: %s' % self.curThemeDir, 'LightDMManager.main', 'debug')
+        self.log.write(_("Current theme directory: %(dir)s") % { "dir": self.curThemeDir }, 'LightDMManager.main', 'debug')
         self.fleChooserTheme.set_current_folder(self.curThemeDir)
 
         # Show users menu
