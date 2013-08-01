@@ -75,7 +75,8 @@ if functions.isPackageInstalled('lightdm'):
         if debug:
             args += ' :l ' + log.logPath
 
-    if functions.getDistribution() == 'debian':
+    dist = functions.getDistribution()
+    if dist == 'debian' or dist == 'arm':
         # Do not run in live environment
         if not functions.isRunningLive() or force:
             dpmPath = os.path.join(scriptDir, 'lightdm-manager.py' + args)
