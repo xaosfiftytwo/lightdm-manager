@@ -1,25 +1,21 @@
-#!/usr/bin/env python
+#! /usr/bin/env python3
+#-*- coding: utf-8 -*-
 
-try:
-    import gtk
-    import gobject
-except Exception, detail:
-    print detail
-
+from gi.repository import Gtk, GObject
 
 # Show message dialog
 # Usage:
-# MessageDialog(_("My Title"), "Your (error) message here", gtk.MESSAGE_ERROR).show()
+# MessageDialog(_("My Title"), "Your (error) message here", Gtk.MessageType.ERROR).show()
 # Message types:
-# gtk.MESSAGE_INFO
-# gtk.MESSAGE_WARNING
-# gtk.MESSAGE_ERROR
+# Gtk.MessageType.INFO
+# Gtk.MessageType.WARNING
+# Gtk.MessageType.ERROR
 # MessageDialog can be called from a working thread
-class MessageDialog(gtk.MessageDialog):
+class MessageDialog(Gtk.MessageDialog):
     def __init__(self, title, message, style, parent=None):
-        gtk.MessageDialog.__init__(self, parent, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT, style, gtk.BUTTONS_OK, message)
-        self.set_default_response(gtk.RESPONSE_OK)
-        self.set_position(gtk.WIN_POS_CENTER)
+        Gtk.MessageDialog.__init__(self, parent, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, style, Gtk.ButtonsType.OK, message)
+        self.set_default_response(Gtk.ResponseType.OK)
+        self.set_position(Gtk.WindowPosition.CENTER)
         self.set_markup("<b>%s</b>" % title)
         self.format_secondary_markup(message)
         if parent is not None:
@@ -30,7 +26,7 @@ class MessageDialog(gtk.MessageDialog):
         self.destroy()
 
     def show(self):
-        gobject.timeout_add(0, self._do_show_dialog)
+        GObject.timeout_add(0, self._do_show_dialog)
 
     def _do_show_dialog(self):
         self.show_all()
@@ -39,11 +35,11 @@ class MessageDialog(gtk.MessageDialog):
 
 # Show unthreaded message dialog
 # Usage:
-# MessageDialog(_("My Title"), "Your (error) message here", gtk.MESSAGE_ERROR).show()
+# MessageDialog(_("My Title"), "Your (error) message here", Gtk.MessageType.ERROR).show()
 # Message types:
-# gtk.MESSAGE_INFO
-# gtk.MESSAGE_WARNING
-# gtk.MESSAGE_ERROR
+# Gtk.MessageType.INFO
+# Gtk.MessageType.WARNING
+# Gtk.MessageType.ERROR
 # MessageDialogSave can NOT be called from a working thread, only from main (UI) thread
 class MessageDialogSave(object):
     def __init__(self, title, message, style, parent=None):
@@ -53,7 +49,7 @@ class MessageDialogSave(object):
         self.style = style
 
     def show(self):
-        dialog = gtk.MessageDialog(self.parent, gtk.DIALOG_MODAL, self.style, gtk.BUTTONS_OK, self.message)
+        dialog = Gtk.MessageDialog(self.parent, Gtk.DialogFlags.MODAL, self.style, Gtk.ButtonsType.OK, self.message)
         dialog.set_markup("<b>%s</b>" % self.title)
         dialog.format_secondary_markup(self.message)
         if self.parent is not None:
@@ -75,16 +71,66 @@ class QuestionDialog(object):
 
     #''' Show me on screen '''
     def show(self):
-        dialog = gtk.MessageDialog(self.parent, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT, gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO, self.message)
+        dialog = Gtk.MessageDialog(self.parent, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, self.message)
         dialog.set_markup("<b>%s</b>" % self.title)
         dialog.format_secondary_markup(self.message)
-        dialog.set_position(gtk.WIN_POS_CENTER)
+        dialog.set_position(Gtk.WindowPosition.CENTER)
         if self.parent is not None:
             dialog.set_icon(self.parent.get_icon())
         answer = dialog.run()
-        if answer == gtk.RESPONSE_YES:
+        if answer == Gtk.ResponseType.YES:
             return_value = True
         else:
             return_value = False
         dialog.destroy()
         return return_value
+
+
+class SelectImageDialog(object):
+    def __init__(self, title, start_directory=None, parent=None):
+        self.title = title
+        self.start_directory = start_directory
+        self.parent = parent
+
+    def show(self):
+        imagePath = None
+        dialog = Gtk.FileChooserDialog(self.title, self.parent, Gtk.FileChooserAction.OPEN, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+        dialog.set_default_response(Gtk.ResponseType.OK)
+        if self.start_directory is not None:
+            dialog.set_current_folder(self.start_directory)
+        fleFilter = Gtk.FileFilter()
+        fleFilter.set_name("Images")
+        fleFilter.add_mime_type("image/png")
+        fleFilter.add_mime_type("image/jpeg")
+        fleFilter.add_mime_type("image/gif")
+        fleFilter.add_pattern("*.png")
+        fleFilter.add_pattern("*.jpg")
+        fleFilter.add_pattern("*.gif")
+        fleFilter.add_pattern("*.tif")
+        fleFilter.add_pattern("*.xpm")
+        dialog.add_filter(fleFilter)
+
+        answer = dialog.run()
+        if answer == Gtk.ResponseType.OK:
+            imagePath = dialog.get_filename()
+        dialog.destroy()
+        return imagePath
+
+
+class SelectDirectoryDialog(object):
+    def __init__(self, title, start_directory=None, parent=None):
+        self.title = title
+        self.start_directory = start_directory
+        self.parent = parent
+
+    def show(self):
+        directory = None
+        dialog = Gtk.FileChooserDialog(self.title, self.parent, Gtk.FileChooserAction.SELECT_FOLDER, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+        dialog.set_default_response(Gtk.ResponseType.OK)
+        if self.start_directory is not None:
+            dialog.set_current_folder(self.start_directory)
+        answer = dialog.run()
+        if answer == Gtk.ResponseType.OK:
+            directory = dialog.get_filename()
+        dialog.destroy()
+        return directory

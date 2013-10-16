@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#! /usr/bin/env python3
+#-*- coding: utf-8 -*-
 
 import os
 import pwd
 import logging
 import functions
-import gtk
+from gi.repository import Gtk
 from dialogs import MessageDialog
 from treeview import TreeViewHandler
 
@@ -63,31 +64,31 @@ class Logger():
                 myLogger.error(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    MessageDialog('Error', message, gtk.MESSAGE_ERROR, self.parent).show()
+                    MessageDialog('Error', message, Gtk.MessageType.ERROR, self.parent).show()
             elif logLevel == 'critical':
                 myLogger.critical(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    MessageDialog('Critical', message, gtk.MESSAGE_ERROR, self.parent).show()
+                    MessageDialog('Critical', message, Gtk.MessageType.ERROR, self.parent).show()
             elif logLevel == 'exception':
                 myLogger.exception(message)
                 self.rtobjectWrite(message)
                 if showErrorDialog:
-                    MessageDialog('Exception', message, gtk.MESSAGE_ERROR, self.parent).show()
+                    MessageDialog('Exception', message, Gtk.MessageType.ERROR, self.parent).show()
 
     # Return messge to given object
     def rtobjectWrite(self, message):
         if self.rtobject is not None and self.typeString != '':
-            if self.typeString == 'gtk.Label':
+            if 'label' in self.typeString.lower():
                 self.rtobject.set_text(message)
-            elif self.typeString == 'gtk.TreeView':
-                tvHandler = TreeViewHandler(None, self.rtobject)
+            elif 'treeview' in self.typeString.lower():
+                tvHandler = TreeViewHandler(self.rtobject)
                 tvHandler.fillTreeview([message], ['str'], [-1], 0, 400, False, True, True, fontSize=10000)
-            elif self.typeString == 'gtk.Statusbar':
+            elif 'statusbar' in self.typeString.lower():
                 functions.pushMessage(self.rtobject, message)
             else:
                 # For obvious reasons: do not log this...
-                print 'Return object type not implemented: %s' % self.typeString
+                print('Return object type not implemented: %s' % self.typeString)
 
 
 # Test

@@ -1,3 +1,4 @@
 #!/bin/bash
 # Launch live-installer with all passed arguments (future reserved)
-/usr/bin/python2.7 -tt /usr/lib/lightdm-manager/main.py $*
+echo $USER > /tmp/user
+gksu /usr/bin/python3 ../lib/lightdm-manager/lightdm-manager.py $*

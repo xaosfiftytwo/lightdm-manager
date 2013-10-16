@@ -1,3 +1,18 @@
+lightdm-manager (0.5.3) debian; urgency=low
+
+  * Change user icon
+  * Set greeter-hide-users
+  * Python3 / Gtk+
+  
+ -- Schoelje <schoelje@solydxk.com>  Wed, 16 Oct 2013 17:00:00 +0100
+ 
+lightdm-manager (0.1.5) debian; urgency=low
+
+  * Added Greek translation
+    provided by Stelios
+  
+ -- Schoelje <schoelje@solydxk.com>  Thu, 03 Oct 2013 11:00:00 +0100
+
 lightdm-manager (0.1.4) debian; urgency=low
 
   * Added French translation

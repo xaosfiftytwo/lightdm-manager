@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#! /usr/bin/env python3
+#-*- coding: utf-8 -*-
 
 # Class to handle configuration files
 # Example:
@@ -6,7 +7,7 @@
 # OptionName = OptionValue
 
 import os
-import ConfigParser
+import configparser
 
 
 class Config():
@@ -21,7 +22,7 @@ class Config():
 
         self.curDir = curDir
         self.filePath = filePath
-        self.parser = ConfigParser.SafeConfigParser()
+        self.parser = configparser.SafeConfigParser()
         self.parser.read([self.filePath])
 
     def getSections(self):

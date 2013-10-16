@@ -1,76 +1,64 @@
-#!/usr/bin/env python -u
+#! /usr/bin/env python3
+#-*- coding: utf-8 -*-
 
-import os
-import sys
-import re
-import operator
-import string
-import shutil
-import apt
-import pwd
-import grp
-import commands
-import fnmatch
-import urllib2
-import gettext
-from datetime import datetime
-from execcmd import ExecCmd
 try:
-    import gtk
-except Exception, detail:
-    print detail
-    sys.exit(1)
+    import os
+    import pwd
+    import shutil
+    import re
+    import operator
+    import apt
+    import apt_pkg
+    import stat
+    import fnmatch
+    import urllib.request
+    import urllib.error
+    import urllib.parse
+    from os.path import join, exists, abspath, splitext
+    from datetime import datetime
+    import calendar
+    import collections
+    from execcmd import ExecCmd
+    from gi.repository import Gtk
+except Exception as detail:
+    print(detail)
+    exit(1)
 
+
+# Init
 packageStatus = ['installed', 'notinstalled', 'uninstallable']
-
-# Logging object set from parent
-log = object
-
-# i18n
-gettext.install("lightdm-manager", "/usr/share/locale")
+ec = ExecCmd()
+cache = apt.Cache()
 
 
 # General ================================================
 
 def locate(pattern, root=os.curdir, locateDirsOnly=False):
-    '''Locate all files matching supplied filename pattern in and below
-    supplied root directory.'''
-    for path, dirs, files in os.walk(os.path.abspath(root)):
+    ret = []
+    for path, dirs, files in os.walk(abspath(root)):
         if locateDirsOnly:
             obj = dirs
         else:
             obj = files
         for objname in fnmatch.filter(obj, pattern):
-            yield os.path.join(path, objname)
+            ret.append(join(path, objname))
+    return ret
 
-# Get a list with users, home directory, and a list with groups of that user
-def getUsers(homeUsers=True):
-    users = []
-    userGroups = []
-    groups = grp.getgrall()
-    for p in pwd.getpwall():
-        for g in groups:
-            for u in g.gr_mem:
-                if u == p.pw_name:
-                    userGroups.append(g.gr_name)
-        if homeUsers:
-            if p.pw_uid > 500 and p.pw_uid < 1500:
-                users.append([p.pw_name, p.pw_dir, userGroups])
-        else:
-            users.append([p.pw_name, p.pw_dir, userGroups])
-    return users
 
 # Get the login name of the current user
 def getUserLoginName():
-    p = os.popen('logname','r')
-    userName = string.strip(p.readline())
+    p = os.popen('logname', 'r')
+    userName = p.readline().strip()
     p.close()
+    if userName == "":
+        userName = pwd.getpwuid(os.getuid()).pw_name
     return userName
+
 
 def repaintGui():
     # Force repaint: ugly, but gui gets repainted so fast that gtk objects don't show it
-    while gtk.events_pending():
-        gtk.main_iteration(False)
+    while Gtk.events_pending():
+        Gtk.main_iteration(False)
 
 
 # Return the type string of a object
@@ -86,7 +74,6 @@ def getTypeString(object):
 # Convert string to number
 def strToNumber(stringnr, toInt=False):
     nr = 0
-    stringnr = stringnr.strip()
     try:
         if toInt:
             nr = int(stringnr)
@@ -97,9 +84,28 @@ def strToNumber(stringnr, toInt=False):
     return nr
 
 
+def getMonthsList():
+    months = []
+    for x in range(1, 13):
+        months.append(datetime(1970, x, 1).strftime('%B'))
+    return months
+
+
+def getDaysInMonth(month=None, year=None):
+    if month is None:
+        month = datetime.now().month
+    if year is None:
+        year = datetime.now().year
+    return calendar.monthrange(year, month)[1]
+
+
 # Check if parameter is a list
 def isList(lst):
     return isinstance(lst, list)
+
+
+def areListsEqual(lst1, lst2):
+    return collections.Counter(lst1) == collections.Counter(lst2)
 
 
 # Check if parameter is a list containing lists
@@ -117,7 +123,6 @@ def sortListOnColumn(lst, columsList):
 # Return a list with images from a given path
 def getImgsFromDir(directoryPath):
     extensions = ['.png', '.jpg', '.jpeg', '.gif']
-    log.write(_("Search for extensions: %(ext)s") % { "ext": str(extensions) }, 'functions.getImgsFromDir', 'debug')
     imgs = getFilesFromDir(directoryPath, False, extensions)
     return imgs
 
@@ -132,52 +137,54 @@ def getFilesFromDir(directoryPath, recursive=False, extensionList=None):
     for fle in filesUnsorted:
         if extensionList:
             for ext in extensionList:
-                if os.path.splitext(fle)[1] == ext:
-                    path = os.path.join(directoryPath, fle)
+                if splitext(fle)[1] == ext:
+                    path = join(directoryPath, fle)
                     files.append(path)
-                    log.write(_("File with extension found: %(path)s") % { "path": path }, 'functions.getFilesFromDir', 'debug')
                     break
         else:
-            path = os.path.join(directoryPath, fle)
+            path = join(directoryPath, fle)
             files.append(path)
-            log.write(_("File found: %(path)s") % { "path": path }, 'functions.getFilesFromDir', 'debug')
     return files
 
 
 # Get files and folders recursively
 def getFilesAndFoldersRecursively(directoryPath, files=True, dirs=True):
     paths = []
-    if os.path.exists(directoryPath):
+    if exists(directoryPath):
         for dirName, dirNames, fileNames in os.walk(directoryPath):
             if dirs:
                 for subDirName in dirNames:
-                    paths.append(os.path.join(dirName, subDirName + '/'))
+                    paths.append(join(dirName, subDirName + '/'))
             if files:
                 for fileName in fileNames:
-                    paths.append(os.path.join(dirName, fileName))
+                    paths.append(join(dirName, fileName))
     return paths
 
 
 # Replace a string (or regular expression) in a file
 def replaceStringInFile(findStringOrRegExp, replString, filePath):
-    if os.path.exists(filePath):
-        tmpFile = '%s.tmp' % filePath
-        # Get the data
-        f = open(filePath)
-        data = f.read()
-        f.close()
-        # Write the temporary file with new data
-        tmp = open(tmpFile, "w")
-        tmp.write(re.sub(findStringOrRegExp, replString, data))
-        tmp.close()
-        # Overwrite the original with the temporary file
-        shutil.copy(tmpFile, filePath)
-        os.remove(tmpFile)
+    replString = str(replString)
+    if exists(filePath):
+        try:
+            tmpFile = '%s.tmp' % filePath
+            # Get the data
+            f = open(filePath)
+            data = f.read()
+            f.close()
+            # Write the temporary file with new data
+            tmp = open(tmpFile, "w")
+            tmp.write(re.sub(findStringOrRegExp, replString, data))
+            tmp.close()
+            # Overwrite the original with the temporary file
+            shutil.copy(tmpFile, filePath)
+            os.remove(tmpFile)
+        except:
+            print("Cannot replace string: %(findStringOrRegExp)s with %(replString)s in %(filePath)s" % { "findStringOrRegExp": findStringOrRegExp, "replString": replString, "filePath": filePath })
 
 
 # Create a backup file with date/time
 def backupFile(filePath, removeOriginal=False):
-    if os.path.exists(filePath):
+    if exists(filePath):
         bak = filePath + '.{0:%Y%m%d_%H%M}.bak'.format(datetime.now())
         shutil.copy(filePath, bak)
         if removeOriginal:
@@ -188,7 +195,6 @@ def backupFile(filePath, removeOriginal=False):
 def isFileLocked(path):
     locked = False
     cmd = 'lsof %s' % path
-    ec = ExecCmd(log)
     lsofList = ec.run(cmd, False)
     for line in lsofList:
         if path in line:
@@ -229,9 +235,8 @@ def popMessage(statusbar, contextString='message'):
 def getLinuxHeadersAndImage(getLatest=False, includeLatestRegExp='', excludeLatestRegExp=''):
     returnList = []
     lhList = []
-    ec = ExecCmd(log)
     if getLatest:
-        lst = ec.run('aptitude search linux-headers', False)
+        lst = ec.run('aptitude search -w 150 linux-headers', False)
         for item in lst:
             lhMatch = re.search('linux-headers-\d+\.[a-zA-Z0-9-\.]*', item)
             if lhMatch:
@@ -264,7 +269,6 @@ def getLinuxHeadersAndImage(getLatest=False, includeLatestRegExp='', excludeLate
 
 # Get the current kernel release
 def getKernelRelease():
-    ec = ExecCmd(log)
     kernelRelease = ec.run('uname -r', False)[0]
     return kernelRelease
 
@@ -273,7 +277,6 @@ def getKernelRelease():
 def getVideoCards(pciId=None):
     videoCard = []
     cmdVideo = 'lspci -nn | grep VGA'
-    ec = ExecCmd(log)
     hwVideo = ec.run(cmdVideo, False)
     for line in hwVideo:
         videoMatch = re.search(':\s(.*)\[(\w*):(\w*)\]', line)
@@ -286,25 +289,30 @@ def getVideoCards(pciId=None):
 def getSystemVersionInfo():
     info = ''
     try:
-        ec = ExecCmd(log)
         infoList = ec.run('cat /proc/version', False)
         if infoList:
             info = infoList[0]
-    except Exception, detail:
-        log.write(detail, 'functions.getSystemVersionInfo', 'error')
+    except Exception as detail:
+        print("ERROR (functions.getSystemVersionInfo: %(detail)s" % {"detail": detail})
     return info
 
 
 # Get the system's distribution
-def getDistribution():
+def getDistribution(returnBaseDistribution=True):
     distribution = ''
-    sysInfo = getSystemVersionInfo().lower()
-    if 'debian' in sysInfo:
-        distribution = 'debian'
-    elif 'ubuntu' in sysInfo:
-        distribution = 'ubuntu'
-    elif 'arm' in sysInfo:
-        distribution = 'arm'
+    if returnBaseDistribution:
+        sysInfo = getSystemVersionInfo().lower()
+        if 'debian' in sysInfo:
+            distribution = 'debian'
+        elif 'ubuntu' in sysInfo:
+            distribution = 'ubuntu'
+        elif 'arm' in sysInfo:
+            distribution = 'arm'
+    else:
+        if exists('/etc/solydxk/info'):
+            lst = ec.run("cat /etc/solydxk/info | grep EDITION | cut -d'=' -f 2", False)
+            if lst:
+                distribution = lst[0]
     return distribution
 
 
@@ -313,12 +321,11 @@ def getDistributionDescription():
     distribution = ''
     try:
         cmdDist = 'cat /etc/*-release | grep DISTRIB_DESCRIPTION'
-        ec = ExecCmd(log)
         dist = ec.run(cmdDist, False)[0]
         distribution = dist[dist.find('=') + 1:]
-        distribution = string.replace(distribution, '"', '')
-    except Exception, detail:
-        log.write(detail, 'functions.getDistributionDescription', 'error')
+        distribution = distribution.replace('"', '')
+    except Exception as detail:
+        print("ERROR (functions.getDistributionDescription: %(detail)s" % {"detail": detail})
     return distribution
 
 
@@ -327,15 +334,14 @@ def getDistributionReleaseNumber():
     release = 0
     try:
         cmdRel = 'cat /etc/*-release | grep DISTRIB_RELEASE'
-        ec = ExecCmd(log)
         relLst = ec.run(cmdRel, False)
         if relLst:
             rel = relLst[0]
             release = rel[rel.find('=') + 1:]
-            release = string.replace(release, '"', '')
+            release = release.replace('"', '')
             release = strToNumber(release)
-    except Exception, detail:
-        log.write(detail, 'functions.getDistributionReleaseNumber', 'error')
+    except Exception as detail:
+        print("ERROR (functions.getDistributionReleaseNumber: %(detail)s" % {"detail": detail})
     return release
 
 
@@ -350,7 +356,8 @@ def getDesktopEnvironment():
         desktop_environment = 'mate'
     else:
         try:
-            info = commands.getoutput('xprop -root _DT_SAVE_MODE')
+
+            info = ec.run('xprop -root _DT_SAVE_MODE', False, False)
             if ' = "xfce4"' in info:
                 desktop_environment = 'xfce'
         except (OSError, RuntimeError):
@@ -365,7 +372,7 @@ def getResolutions(minRes='', maxRes='', reverseOrder=False, getVesaResolutions=
 
     if getVesaResolutions:
         vbeModes = '/sys/bus/platform/drivers/uvesafb/uvesafb.0/vbe_modes'
-        if os.path.exists(vbeModes):
+        if exists(vbeModes):
             cmd = "cat %s | cut -d'-' -f1" % vbeModes
         elif isPackageInstalled('v86d') and isPackageInstalled('hwinfo'):
             cmd = "sudo hwinfo --framebuffer | grep '0x0' | cut -d' ' -f5"
@@ -373,7 +380,6 @@ def getResolutions(minRes='', maxRes='', reverseOrder=False, getVesaResolutions=
         cmd = "xrandr | grep '^\s' | cut -d' ' -f4"
 
     if cmd is not None:
-        ec = ExecCmd(log)
         cmdList = ec.run(cmd, False)
     # Remove any duplicates from the list
     resList = list(set(cmdList))
@@ -405,7 +411,6 @@ def getResolutions(minRes='', maxRes='', reverseOrder=False, getVesaResolutions=
                 itemH = strToNumber(itemList[1], True)
                 # Check if it can be added
                 if itemW >= minW and itemH >= minH and (maxW == 0 or itemW <= maxW) and (maxH == 0 or itemH <= maxH):
-                    log.write(_("Resolution added: %(res)s") % { "res": item }, 'functions.getResolutions', 'debug')
                     avlResTmp.append([itemW, itemH])
 
     # Sort the list and return as readable resolution strings
@@ -419,23 +424,18 @@ def getResolutions(minRes='', maxRes='', reverseOrder=False, getVesaResolutions=
 def getPackageStatus(packageName):
     status = ''
     try:
-        cache = apt.Cache()
         pkg = cache[packageName]
-        if pkg.installed is not None:
+        if pkg.is_installed and pkg._pkg.current_state == apt_pkg.CURSTATE_INSTALLED:
             # Package is installed
-            log.write(_("Package is installed: %(package)s") % { "package": str(packageName) }, 'drivers.getPackageStatus', 'debug')
             status = packageStatus[0]
-        elif pkg.candidate is not None:
+        elif not pkg.is_installed and pkg._pkg.current_state == apt_pkg.CURSTATE_NOT_INSTALLED:
             # Package is not installed
-            log.write(_("Package not installed: %(package)s") % { "package": str(packageName) }, 'drivers.getPackageStatus', 'debug')
             status = packageStatus[1]
         else:
-            # Package is not found: uninstallable
-            log.write(_("Package not found: %(package)s") % { "package": str(packageName) }, 'drivers.getPackageStatus', 'debug')
+            # If something went wrong: assume that package is uninstallable
             status = packageStatus[2]
     except:
-        # If something went wrong: assume that package is uninstallable
-        log.write(_("Could not get status info for package: %(package)s") % { "package": str(packageName) }, 'drivers.getPackageStatus', 'debug')
+        # Package is not found: uninstallable
         status = packageStatus[2]
 
     return status
@@ -445,29 +445,30 @@ def getPackageStatus(packageName):
 def isPackageInstalled(packageName, alsoCheckVersion=True):
     isInstalled = False
     try:
-        cmd = 'dpkg-query -l %s | grep ^i' % packageName
-        if '*' in packageName:
-            cmd = 'aptitude search %s | grep ^i' % packageName
-        ec = ExecCmd(log)
-        pckList = ec.run(cmd, False)
-        for line in pckList:
-            matchObj = re.search('([a-z]+)\s+([a-z0-9\-_\.]*)', line)
-            if matchObj:
-                if matchObj.group(1)[:1] == 'i':
-                    if alsoCheckVersion:
-                        cache = apt.Cache()
-                        pkg = cache[matchObj.group(2)]
-                        if pkg.installed.version == pkg.candidate.version:
-                            isInstalled = True
-                            break
-                    else:
-                        isInstalled = True
-                        break
-            if isInstalled:
-                break
+        pkg = cache[packageName]
+        if (not pkg.is_installed or
+            pkg._pkg.current_state != apt_pkg.CURSTATE_INSTALLED or
+            cache._depcache.broken_count > 0):
+            isInstalled = False
+        elif alsoCheckVersion:
+            if pkg.installed.version == pkg.candidate.version:
+                isInstalled = True
+        else:
+            isInstalled = True
     except:
         pass
     return isInstalled
+
+
+# Check if a package exists
+def doesPackageExist(packageName):
+    exists = False
+    try:
+        cache[packageName]
+        exists = True
+    except:
+        pass
+    return exists
 
 
 # List all dependencies of a package
@@ -476,7 +477,6 @@ def getPackageDependencies(packageName, reverseDepends=False):
     try:
         if reverseDepends:
             cmd = 'apt-cache rdepends %s | grep "^ "' % packageName
-            ec = ExecCmd(log)
             depList = ec.run(cmd, False)
             if depList:
                 for line in depList:
@@ -486,12 +486,11 @@ def getPackageDependencies(packageName, reverseDepends=False):
                             if matchObj.group(1) != '':
                                 retList.append(matchObj.group(1))
         else:
-            cache = apt.Cache()
             pkg = cache[packageName]
-            for basedeps in pkg.installed.dependencies:
+            deps = pkg.candidate.get_dependencies("Depends")
+            for basedeps in deps:
                 for dep in basedeps:
-                    if dep.version != '':
-                        retList.append(dep.name)
+                    retList.append(dep.name)
     except:
         pass
     return retList
@@ -502,7 +501,6 @@ def getPackagesWithFile(fileName):
     packages = []
     if len(fileName) > 0:
         cmd = 'dpkg -S %s' % fileName
-        ec = ExecCmd(log)
         packageList = ec.run(cmd, False)
         for package in packageList:
             if '*' not in package:
@@ -514,7 +512,6 @@ def getPackagesWithFile(fileName):
 def isProcessRunning(processName):
     isProc = False
     cmd = 'ps -C %s' % processName
-    ec = ExecCmd(log)
     procList = ec.run(cmd, False)
     if procList:
         if len(procList) > 1:
@@ -525,7 +522,6 @@ def isProcessRunning(processName):
 # Kill a process by name and return success
 def killProcessByName(processName):
     killed = False
-    ec = ExecCmd(log)
     lst = ec.run('killall %s' % processName)
     if len(lst) == 0:
         killed = True
@@ -577,7 +573,6 @@ def getWirelessInterface():
     wi = None
     rtsFound = False
     cmd = 'iwconfig'
-    ec = ExecCmd(log)
     wiList = ec.run(cmd, False)
     for line in reversed(wiList):
         if not rtsFound:
@@ -597,7 +592,7 @@ def isRunningLive():
     live = False
     liveDirs = ['/live', '/lib/live', '/rofs']
     for ld in liveDirs:
-        if os.path.exists(ld):
+        if exists(ld):
             live = True
             break
     return live
@@ -610,15 +605,116 @@ def getDivertedFiles(mustContain=None):
     cmd = 'dpkg-divert --list'
     if mustContain:
         cmd = 'dpkg-divert --list | grep %s | cut -d' ' -f3' % mustContain
-    ec = ExecCmd(log)
     divertedFiles = ec.run(cmd, False)
     return divertedFiles
+
 
 # Check for internet connection
 def hasInternetConnection(testUrl='http://google.com'):
     try:
-        urllib2.urlopen(testUrl, timeout=1)
+        urllib.request.urlopen(testUrl, timeout=1)
         return True
-    except urllib2.URLError:
+    except urllib.error.URLError:
         pass
     return False
+
+
+# Get default terminal
+def getDefaultTerminal():
+    terminal = None
+    cmd = "update-alternatives --display x-terminal-emulator"
+    terminalList = ec.run(cmd, False)
+    for line in terminalList:
+        reObj = re.search("\'(\/.*)\'", line)
+        if reObj:
+            terminal = reObj.group(1)
+    return terminal
+
+
+# Get an estimated bandwidth speed
+#def getBandwidthSpeed():
+    #testFile = 'http://downloads.solydxk.com/.speedtest/10mb.bin'
+    #speed = 0
+    #c = pycurl.Curl()
+    #buff = io.StringIO()
+    #c.setopt(pycurl.URL, testFile)
+    #c.setopt(pycurl.CONNECTTIMEOUT, 10)
+    #c.setopt(pycurl.TIMEOUT, 100)
+    #c.setopt(pycurl.FOLLOWLOCATION, 1)
+    #c.setopt(pycurl.WRITEFUNCTION, buff.write)
+    #try:
+        #c.perform()
+        #return_code = c.getinfo(pycurl.HTTP_CODE)
+        #if (return_code == 200):
+            #speed = c.getinfo(pycurl.SPEED_DOWNLOAD)
+            #speed = int(round(speed / 1000))
+            #log("Download speed = %dKbps" % speed)
+        #else:
+            #log("getBandwidthSpeed returns HTTP code %d" % return_code)
+    #except pycurl.error as error:
+        #errno, errstr = error
+        #log("ERROR: getBandwidthSpeed() - %s" % errstr)
+
+    #return speed
+
+
+# Ownership to current user
+def chownCurUsr(path):
+    if exists(path):
+        uid = os.getuid()
+        gid = os.getgid()
+        os.chown(path, uid, gid)
+
+
+# Make file executable
+def makeExecutable(path):
+    if exists(path):
+        st = os.stat(path)
+        os.chmod(path, st.st_mode | stat.S_IEXEC)
+
+
+# Get current user home directory (even when sudo'ed)
+def getUserDir():
+    usr = ec.run("who am i  | cut -d' ' -f1", False)
+    return "/home/%s" % usr
+
+
+# Get active network interface
+def getNetworkInterface():
+    interface = None
+    found = False
+    cmd = '/sbin/ifconfig'
+    ifList = ec.run(cmd)
+    for line in reversed(ifList):
+        if not found:
+            reObj = re.search('inet.*bcast.*', line, re.I)
+            if reObj:
+                found = True
+        else:
+            reObj = re.search('^[a-z0-9]+', line, re.I)
+            if reObj:
+                interface = reObj.group(0)
+                break
+    return interface
+
+
+# Find regular expression in string
+def findRegExpInString(regExp, searchStr, groupNr=0, caseSensitive=False):
+    ret = None
+    if caseSensitive:
+        reObj = re.search(regExp, searchStr)
+    else:
+        reObj = re.search(regExp, searchStr, re.I)
+    if reObj:
+        ret = reObj.group(groupNr)
+    return ret
+
+
+# Get the contents of a file
+def getFileContents(path):
+    cont = None
+    if exists(path):
+        f = open(path, 'r')
+        cont = f.read().strip()
+        f.close()
+    return cont
