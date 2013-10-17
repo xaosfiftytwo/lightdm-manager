@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 #-*- coding: utf-8 -*-
 
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, GdkPixbuf
 
 # Show message dialog
 # Usage:
@@ -94,6 +94,19 @@ class SelectImageDialog(object):
 
     def show(self):
         imagePath = None
+        image = Gtk.Image()
+
+        # Image preview function
+        def image_preview_cb(dialog):
+            filename = dialog.get_preview_filename()
+            try:
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(filename, 128, 128)
+                image.set_from_pixbuf(pixbuf)
+                valid_preview = True
+            except:
+                valid_preview = False
+            dialog.set_preview_widget_active(valid_preview)
+
         dialog = Gtk.FileChooserDialog(self.title, self.parent, Gtk.FileChooserAction.OPEN, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
         dialog.set_default_response(Gtk.ResponseType.OK)
         if self.start_directory is not None:
@@ -109,6 +122,10 @@ class SelectImageDialog(object):
         fleFilter.add_pattern("*.tif")
         fleFilter.add_pattern("*.xpm")
         dialog.add_filter(fleFilter)
+
+        # Add a preview widget:
+        dialog.set_preview_widget(image)
+        dialog.connect("update-preview", image_preview_cb)
 
         answer = dialog.run()
         if answer == Gtk.ResponseType.OK:

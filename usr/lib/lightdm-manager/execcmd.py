@@ -3,11 +3,6 @@
 
 import sys
 import subprocess
-import gettext
-
-# i18n: http://docs.python.org/2/library/gettext.html
-#t = gettext.translation("solydxk-conky", "/usr/share/locale")
-#_ = t.lgettext
 
 
 # Class to execute a command and return the output in an array
@@ -18,9 +13,9 @@ class ExecCmd(object):
 
     def run(self, cmd, realTime=True, returnAsList=True):
         if self.log:
-            self.log.write(_("Command to execute: %(cmd)s") % { "cmd": cmd }, 'execcmd.run', 'debug')
+            self.log.write("Command to execute: %(cmd)s" % { "cmd": cmd }, 'execcmd.run', 'debug')
 
-        p = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen([cmd], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         lstOut = []
         while True:
             line = p.stdout.readline()

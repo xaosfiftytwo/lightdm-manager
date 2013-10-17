@@ -66,6 +66,8 @@ class Config():
                     value += v + '\n'
             else:
                 value = val
+        except:
+            value = ''
         return value
 
     def setValue(self, section, option, value):

@@ -60,9 +60,14 @@ class LightDMManager:
         self.clrMenuSelect = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_select'))[1]
         self.clrMenuHover = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_hover'))[1]
         self.clrMenuBg = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_bg'))[1]
-        self.greeterConf = self.cfg.getValue('CONFIG', 'greeterConf')
         self.lightdmConf = self.cfg.getValue('CONFIG', 'lightdmConf')
         self.desktopbaseDir = self.cfg.getValue('CONFIG', 'desktopbaseDir')
+        gktGreeterConf = self.cfg.getValue('CONFIG', 'gtkGreeterConf')
+        kdeGreeterConf = self.cfg.getValue('CONFIG', 'kdeGreeterConf')
+        if exists(gktGreeterConf):
+            self.greeterConf = gktGreeterConf
+        else:
+            self.greeterConf = kdeGreeterConf
 
         # Set background and forground colors
         self.ebTitle.modify_bg(Gtk.StateType.NORMAL, self.clrTitleBg)
@@ -98,16 +103,13 @@ class LightDMManager:
             self.curAutoUser = self.cfgLightdm.getValue('SeatDefaults', 'autologin-user').strip()
             self.curHideUsers = False
             ghu = self.cfgLightdm.getValue('SeatDefaults', 'greeter-hide-users').strip()
-            if ghu == 'true':
+            if 'true' in ghu:
                 self.curHideUsers = True
         except:
             self.curAutoUser = None
             self.curHideUsers = False
 
         # Init
-        (width, height) = self.imgBackground.get_size_request()
-        self.imgBgWidth = width
-        self.imgBgHeight = height
         self.usr = User()
         self.newbgImg = self.curBgPath
         self.newAutoUser = self.curAutoUser
@@ -122,6 +124,7 @@ class LightDMManager:
         self.newFaces = []
         self.loggedUser = functions.getFileContents(self.tempUser)
         self.curUser = self.loggedUser
+        self.selectImg = join(self.scriptDir, '../../share/lightdm-manager/select.png')
 
         # Handle arguments
         try:
@@ -241,6 +244,9 @@ class LightDMManager:
             ih.makeFaceImage(tempUserImg)
             if exists(tempUserImg):
                 self.imgFace.set_from_pixbuf(ih.pixbuf)
+            else:
+                # This should never happen
+                self.imgFace.set_from_file(self.selectImg)
 
     def on_tvUsers_cursor_changed(self, widget):
         self.curUser = self.tvHandler.getSelectedValue(1)
@@ -251,7 +257,11 @@ class LightDMManager:
                     showFace = GdkPixbuf.Pixbuf.new_from_file(face[0])
         if showFace is None:
             showFace = self.usr.getUserFacePixbuf(self.curUser)
-        self.imgFace.set_from_pixbuf(showFace)
+        if showFace is None:
+            # Still no user icon found: show select image
+            self.imgFace.set_from_file(self.selectImg)
+        else:
+            self.imgFace.set_from_pixbuf(showFace)
 
     def on_btnSave_clicked(self, widget):
         saved = False
@@ -398,6 +408,8 @@ class LightDMManager:
             ih = ImageHandler(path)
             ih.resizeImage(height=200)
             self.imgBackground.set_from_pixbuf(ih.pixbuf)
+        else:
+            self.imgBackground.set_from_file(self.selectImg)
 
 
     # ===============================================

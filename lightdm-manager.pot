@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-03 10:09+0200\n"
+"POT-Creation-Date: 2013-10-17 21:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,180 +17,87 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:69
+#: usr/lib/lightdm-manager/lightdm-manager.py:82
 msgid "Users"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:70
-#: usr/lib/lightdm-manager/lightdm-manager.py:205
+#: usr/lib/lightdm-manager/lightdm-manager.py:83
 msgid "Appearance"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:71
+#: usr/lib/lightdm-manager/lightdm-manager.py:84
 msgid "Background"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:72
-msgid "Save"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:154
-msgid "Auto-login"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:163
+#: usr/lib/lightdm-manager/lightdm-manager.py:85
 msgid "Theme"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:177
-msgid "Auto-login user"
+#: usr/lib/lightdm-manager/lightdm-manager.py:86
+msgid "Menu"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:177
+#: usr/lib/lightdm-manager/lightdm-manager.py:87
+msgid "Hide users"
+msgstr ""
+
+#: usr/lib/lightdm-manager/lightdm-manager.py:88
+msgid "User icon"
+msgstr ""
+
+#: usr/lib/lightdm-manager/lightdm-manager.py:89
+msgid "Auto-login"
+msgstr ""
+
+#: usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid "Select user image"
+msgstr ""
+
+#: usr/lib/lightdm-manager/lightdm-manager.py:286
+msgid "LightDM settings"
+msgstr ""
+
+#: usr/lib/lightdm-manager/lightdm-manager.py:286
 msgid ""
-"The auto-login user has changed\n"
+"Settings have changed\n"
 "\n"
 "Do you want to save the new settings?"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:185
-#: usr/lib/lightdm-manager/lightdm-manager.py:191
-#: usr/lib/lightdm-manager/lightdm-manager.py:223
+#: usr/lib/lightdm-manager/lightdm-manager.py:337
 msgid "Saved"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:185
-#, python-format
-msgid ""
-"Auto-login user saved:\n"
-"\n"
-"%(usr)s"
+#: usr/lib/lightdm-manager/lightdm-manager.py:337
+msgid "LightDM settings saved successfully."
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:186
-#, python-format
-msgid "New auto-login user: %(usr)s"
+#: usr/lib/lightdm-manager/lightdm-manager.py:341
+msgid "Choose background image"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:191
-msgid "Auto-login has been disabled."
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:192
-msgid "Auto-login disabled"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:205
-msgid ""
-"Appearance settings have changed\n"
-"\n"
-"Do you want to save these new settings?"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:213
-#, python-format
-msgid "Theme: %(theme)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:221
-#, python-format
-msgid "Background: %(bg)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:223
-#, python-format
-msgid ""
-"LightDM appearance saved:\n"
-"\n"
-"%(msg)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:232
-#, python-format
-msgid "Current background: %(bg)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:237
-msgid "No background set"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:253
-#, python-format
-msgid "Auto-login user selected: %(usr)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:262
+#: usr/lib/lightdm-manager/lightdm-manager.py:344
 #, python-format
 msgid "New background: %(bg)s"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:271
+#: usr/lib/lightdm-manager/lightdm-manager.py:366
 #, python-format
-msgid "New theme: %(theme)s"
+msgid "Auto-login user selected: %(usr)s"
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:273
-msgid "No Theme"
+#: usr/lib/lightdm-manager/user.py:247
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
 msgstr ""
 
-#: usr/lib/lightdm-manager/lightdm-manager.py:273
+#: usr/lib/lightdm-manager/user.py:249 usr/lib/lightdm-manager/user.py:321
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr ""
+
+#: usr/lib/lightdm-manager/user.py:319
+#, python-format
 msgid ""
-"Directory does not contain a valid theme engine:\n"
-"\n"
-"Please, choose another theme."
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:274
-#, python-format
-msgid "No valid theme: %(dir)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/lightdm-manager.py:379
-msgid "Images"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:57
-#, python-format
-msgid "Write debug information to file: %(path)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:61
-#, python-format
-msgid "Machine info: %(info)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:63
-#, python-format
-msgid "lightdm-manager version: %(version)s"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:87 usr/lib/lightdm-manager/main.py:89
-msgid "Please enter your password"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:95
-msgid "LightDM Manager - Live environment"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:96
-msgid ""
-"LightDM Manager cannot run in a live environment\n"
-"\n"
-"To force start, use the --force argument"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:100
-msgid "LightDM Manager - Debian based"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:101
-msgid "LightDM Manager can only run on Debian based distributions"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:105
-msgid "LightDM Manager"
-msgstr ""
-
-#: usr/lib/lightdm-manager/main.py:106
-msgid "LightDM not installed - quitting."
+"Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""

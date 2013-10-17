@@ -81,7 +81,7 @@ class User(object):
             # Check UID range when returning non-system users only
             addUser = True
             if homeUsers:
-                if p.pw_uid < 500 or p.pw_uid > 1500:
+                if p.pw_uid < 1000 or p.pw_uid > 1500:
                     addUser = False
             if addUser:
                 users.append({ 'user': p, 'groups': self.getUserGroups(p.pw_name), 'prgrp': self.getUserPrimaryGroupName(p.pw_name), 'pwd': self.getUserPasswordInfoDict(p.pw_name), 'face': self.getUserFacePath(p.pw_name) })
@@ -98,14 +98,18 @@ class User(object):
 
     def getGroupAccounts(self, group):
         groupAccounts = []
-        g = grp.getgrnam(group)
-        gid = g.gr_gid
-        pwds = pwd.getpwall()
-        for p in pwds:
-            if p.pw_gid == gid:
-                groupAccounts.append(p.pw_name)
-        for u in g.gr_mem:
-            groupAccounts.append(u)
+        try:
+            g = grp.getgrnam(group)
+            gid = g.gr_gid
+            pwds = pwd.getpwall()
+            for p in pwds:
+                if p.pw_gid == gid:
+                    groupAccounts.append(p.pw_name)
+            for u in g.gr_mem:
+                groupAccounts.append(u)
+        except:
+            # Best effort
+            pass
         return groupAccounts
 
     def getGroups(self):
@@ -125,7 +129,7 @@ class User(object):
         for p in pwds:
             addUser = True
             if homeUsers:
-                if p.pw_uid < 500 or p.pw_uid > 1500:
+                if p.pw_uid < 1000 or p.pw_uid > 1500:
                     addUser = False
             if addUser:
                 users.append(p.pw_name)
@@ -147,37 +151,43 @@ class User(object):
         p = pwd.getpwnam(name)
         return grp.getgrgid(p.pw_gid).gr_name
 
-    def getUserHomeDir(self, name):
-        p = pwd.getpwnam(name)
-        return p.pw_dir
+    def getUserHomeDir(self, name=None):
+        if name is None:
+            name = pwd.getpwuid(os.getuid()).pw_name
+        return pwd.getpwnam(name).pw_dir
 
     def getUserFacePath(self, name=None):
         face = None
-        if name is None:
-            name = pwd.getpwuid(os.getuid()).pw_name
-        p = pwd.getpwnam(name)
-        # Check for face icon
-        if exists(join(p.pw_dir, ".face")):
-            face = join(p.pw_dir, ".face")
-        elif exists(join(p.pw_dir, ".face.icon")):
-            face = join(p.pw_dir, ".face.icon")
+        homeDir = self.getUserHomeDir(name)
+        if exists(homeDir):
+            # Check for face icon
+            if exists(join(homeDir, ".face")):
+                face = join(homeDir, ".face")
+            elif exists(join(homeDir, ".face.icon")):
+                face = join(homeDir, ".face.icon")
 
-        if face is None:
-            if exists('/usr/share/kde4/apps/kdm/faces/.default.face.icon'):
-                face = '/usr/share/kde4/apps/kdm/faces/.default.face.icon'
-            else:
-                defaultTheme = Gtk.IconTheme.get_default()
-                iconInfo = Gtk.IconTheme.lookup_icon(defaultTheme, "user-identity", 64, Gtk.IconLookupFlags.NO_SVG)
-                if iconInfo is not None:
-                    face = iconInfo.get_filename()
-            if face is not None:
-                copy(face, join(p.pw_dir, ".face"))
+            if face is None:
+                kdeFace = '/usr/share/kde4/apps/kdm/faces/.default.face.icon'
+                if exists(kdeFace):
+                    face = kdeFace
+                else:
+                    defaultTheme = Gtk.IconTheme.get_default()
+                    iconInfo = Gtk.IconTheme.lookup_icon(defaultTheme, "user-identity", 64, Gtk.IconLookupFlags.NO_SVG)
+                    if iconInfo is not None:
+                        face = iconInfo.get_filename()
+                if face is not None:
+                    copy(face, join(homeDir, ".face"))
         return face
 
     def getUserFacePixbuf(self, name=None, width=None, height=None):
         pb = None
         facePath = self.getUserFacePath(name)
-        if facePath:
+        if facePath is None:
+            defaultTheme = Gtk.IconTheme.get_default()
+            iconInfo = Gtk.IconTheme.lookup_icon(defaultTheme, "user-identity", 64, Gtk.IconLookupFlags.NO_SVG)
+            if iconInfo is not None:
+                facePath = iconInfo.get_filename()
+        if facePath is not None:
             pb = GdkPixbuf.Pixbuf.new_from_file(facePath)
             if width is not None and height is not None:
                 pb.scale_simple(width, height, GdkPixbuf.InterpType.BILINEAR)
@@ -210,7 +220,7 @@ class User(object):
         newID = 0
         grps = grp.getgrall()
         for g in grps:
-            if (g.gr_gid >= 500 and g.gr_gid <= 1500) and g.gr_gid > newID:
+            if (g.gr_gid >= 1000 and g.gr_gid <= 1500) and g.gr_gid > newID:
                 newID = g.gr_gid
         return newID + 1
 
@@ -232,24 +242,11 @@ class User(object):
         cmd = "delgroup %s" % group
         print((">>> delgroup = %s" % cmd))
         ret = os.system(cmd)
-        if ret == 1:
-            retMsg = _("The user to delete was not a system account.")
-        if ret == 2:
-            retMsg = _("There is no such user.")
-        if ret == 3:
-            retMsg = _("There is no such group.")
-        if ret == 4:
-            retMsg = _("Internal error.")
-        if ret == 5:
-            retMsg = _("The group to delete is not empty.")
-        if ret == 6:
-            retMsg = _("The user does not belong to the specified group.")
-        if ret == 7:
-            retMsg = _("You cannot remove a user from its primary group.")
-        if ret == 8:
-            retMsg = _("The required perl-package 'perl modules' is not installed. This package is required to perform the requested actions.")
-        if ret == 9:
-            retMsg = _("For removing the root account the parameter \"--force\" is required.")
+        if ret > 0:
+            if ret == 1280 or ret == 1792:
+                retMsg = _("Cannot remove group '%(group)s': not empty." % {"group": group})
+            else:
+                retMsg = _("The command '%(cmd)s' returned error code: %(ret)d." % {"cmd": cmd, "ret": ret})
         return retMsg
 
     def removeGroupFromAccount(self, user, group):
@@ -317,18 +314,11 @@ class User(object):
         cmd = "deluser --remove-home %s" % user
         print((">>> deleteUser = %s" % cmd))
         ret = os.system(cmd)
-        if ret == 1:
-            retMsg = _("Can't update password file.")
-        if ret == 2:
-            retMsg = _("Invalid command syntax.")
-        if ret == 6:
-            retMsg = _("Specified user doesn't exist.")
-        if ret == 8:
-            retMsg = _("User currently logged in.")
-        if ret == 10:
-            retMsg = _("Can't update group file.")
-        if ret == 12:
-            retMsg = _("Can't remove home directory.")
+        if ret > 0:
+            if ret == 256:
+                retMsg = _("Cannot remove user '%(user)s': processes started by user are still running." % {"user": user})
+            else:
+                retMsg = _("The command '%(cmd)s' returned error code: %(ret)d." % {"cmd": cmd, "ret": ret})
         return retMsg
 
     # Convert integer to (formatted) date

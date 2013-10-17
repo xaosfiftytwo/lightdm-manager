@@ -1,4 +1,4 @@
-lightdm-manager (0.5.3) debian; urgency=low
+lightdm-manager (0.5.7) debian; urgency=low
 
   * Change user icon
   * Set greeter-hide-users
