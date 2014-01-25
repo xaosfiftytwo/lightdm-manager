@@ -12,7 +12,7 @@ import getopt
 from shutil import copy
 import gettext
 from treeview import TreeViewHandler
-from dialogs import MessageDialogSave, QuestionDialog, SelectImageDialog
+from dialogs import MessageDialogSafe, QuestionDialog, SelectImageDialog
 from config import Config
 from logger import Logger
 from user import User
@@ -334,7 +334,7 @@ class LightDMManager:
             self.newFaces = []
             self.curBgPath = self.newbgImg
             self.curTheme = self.newTheme
-            MessageDialogSave(_("Saved"), _("LightDM settings saved successfully."), Gtk.MessageType.INFO, self.window).show()
+            MessageDialogSafe(_("Saved"), _("LightDM settings saved successfully."), Gtk.MessageType.INFO, self.window).show()
 
 
     def on_ebBackground_button_release_event(self, widget, event):
