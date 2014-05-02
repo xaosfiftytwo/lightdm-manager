@@ -1,4 +1,11 @@
 #!/bin/bash
-# Launch live-installer with all passed arguments (future reserved)
 echo $USER > /tmp/user
-gksu /usr/bin/python3 ../lib/lightdm-manager/lightdm-manager.py $*
+if [ $UID -eq 0 ]; then
+  /usr/bin/python3 /usr/lib/lightdm-manager/lightdm-manager.py $*
+else
+  LAUNCHER="gksudo"
+  if [ -e "/usr/bin/kdesudo" ]; then
+    LAUNCHER="kdesudo"
+  fi
+  $LAUNCHER /usr/bin/python3 /usr/lib/lightdm-manager/lightdm-manager.py $*
+fi

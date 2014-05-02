@@ -38,6 +38,7 @@ class LightDMManager:
         go = self.builder.get_object
         self.window = go('ldmWindow')
         self.ebTitle = go('ebTitle')
+        self.lblTitle = go('lblTitle')
         self.ebMenu = go('ebMenu')
         self.ebMenuUsers = go('ebMenuUsers')
         self.ebMenuAppearance = go('ebMenuAppearance')
@@ -71,7 +72,7 @@ class LightDMManager:
 
         # Set background and forground colors
         self.ebTitle.modify_bg(Gtk.StateType.NORMAL, self.clrTitleBg)
-        go('lblTitle').modify_fg(Gtk.StateType.NORMAL, self.clrTitleFg)
+        self.lblTitle.modify_fg(Gtk.StateType.NORMAL, self.clrTitleFg)
         self.lblMenuUsers.modify_fg(Gtk.StateType.NORMAL, self.clrTitleBg)
         self.lblMenuAppearance.modify_fg(Gtk.StateType.NORMAL, self.clrTitleBg)
         self.ebMenu.modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
@@ -79,6 +80,9 @@ class LightDMManager:
         self.ebMenuAppearance.modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
 
         # Translations
+        title = _("LightDM Manager")
+        self.window.set_title(title)
+        self.lblTitle.set_text(title)
         self.lblMenuUsers.set_text(_("Users"))
         self.lblMenuAppearance.set_text(_("Appearance"))
         go('lblBackground').set_text(_("Background"))
