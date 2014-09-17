@@ -37,17 +37,12 @@ class LightDMManager:
         # Main window objects
         go = self.builder.get_object
         self.window = go('ldmWindow')
-        self.ebTitle = go('ebTitle')
-        self.lblTitle = go('lblTitle')
-        self.ebMenu = go('ebMenu')
-        self.ebMenuUsers = go('ebMenuUsers')
-        self.ebMenuAppearance = go('ebMenuAppearance')
         self.swUsers = go('swUsers')
         self.tvUsers = go('tvUsers')
         self.btnSave = go('btnSave')
         self.imgBackground = go('imgBackground')
-        self.lblMenuUsers = go('lblMenuUsers')
-        self.lblMenuAppearance = go('lblMenuAppearance')
+        self.btnUsers = go('btnUsers')
+        self.btnAppearance = go('btnAppearance')
         self.chkHideUsers = go('chkHideUsers')
         self.ebFace = go('ebFace')
         self.imgFace = go('imgFace')
@@ -56,11 +51,6 @@ class LightDMManager:
 
         # Read from config file
         self.cfg = Config('lightdm-manager.conf')
-        self.clrTitleFg = Gdk.Color.parse(self.cfg.getValue('COLORS', 'title_fg'))[1]
-        self.clrTitleBg = Gdk.Color.parse(self.cfg.getValue('COLORS', 'title_bg'))[1]
-        self.clrMenuSelect = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_select'))[1]
-        self.clrMenuHover = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_hover'))[1]
-        self.clrMenuBg = Gdk.Color.parse(self.cfg.getValue('COLORS', 'menu_bg'))[1]
         self.lightdmConf = self.cfg.getValue('CONFIG', 'lightdmConf')
         self.desktopbaseDir = self.cfg.getValue('CONFIG', 'desktopbaseDir')
         gktGreeterConf = self.cfg.getValue('CONFIG', 'gtkGreeterConf')
@@ -70,27 +60,17 @@ class LightDMManager:
         else:
             self.greeterConf = kdeGreeterConf
 
-        # Set background and forground colors
-        self.ebTitle.modify_bg(Gtk.StateType.NORMAL, self.clrTitleBg)
-        self.lblTitle.modify_fg(Gtk.StateType.NORMAL, self.clrTitleFg)
-        self.lblMenuUsers.modify_fg(Gtk.StateType.NORMAL, self.clrTitleBg)
-        self.lblMenuAppearance.modify_fg(Gtk.StateType.NORMAL, self.clrTitleBg)
-        self.ebMenu.modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
-        self.ebMenuUsers.modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
-        self.ebMenuAppearance.modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
-
         # Translations
         title = _("LightDM Manager")
         self.window.set_title(title)
-        self.lblTitle.set_text(title)
-        self.lblMenuUsers.set_text(_("Users"))
-        self.lblMenuAppearance.set_text(_("Appearance"))
-        go('lblBackground').set_text(_("Background"))
-        go('lblTheme').set_text(_("Theme"))
-        go('lblLightDmMenu').set_text(_("Menu"))
+        self.btnUsers.set_label(_("Users"))
+        self.btnAppearance.set_label(_("Appearance"))
+        go('lblBackground').set_label(_("Background"))
+        go('lblTheme').set_label(_("Theme"))
+        go('lblLightDmMenu').set_label(_("Menu"))
         self.chkHideUsers.set_label(_("Hide users"))
-        go('lblUsersFace').set_text(_("User icon"))
-        go('lblUsersAutologin').set_text(_("Auto-login"))
+        go('lblUsersFace').set_label(_("User icon"))
+        go('lblUsersAutologin').set_label(_("Auto-login"))
 
         # Get current background image
         self.cfgGreeter = Config(self.greeterConf)
@@ -171,7 +151,7 @@ class LightDMManager:
         self.chkHideUsers.set_active(self.curHideUsers)
 
         # Show users menu
-        self.on_ebMenuUsers_button_release_event(None)
+        self.on_btnUsers_clicked(None)
         self.on_tvUsers_cursor_changed(None)
 
         self.version = functions.getPackageVersion('lightdm-manager')
@@ -184,47 +164,15 @@ class LightDMManager:
     # Menu section functions
     # ===============================================
 
-    def on_ebMenuUsers_enter_notify_event(self, widget, event):
-        self.window.get_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND2))
-        self.changeMenuBackground(menuItems[0])
-
-    def on_ebMenuUsers_leave_notify_event(self, widget, event):
-        self.window.get_window().set_cursor(None)
-        self.changeMenuBackground(self.selectedMenuItem)
-
-    def on_ebMenuAppearance_enter_notify_event(self, widget, event):
-        self.window.get_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND2))
-        self.changeMenuBackground(menuItems[1])
-
-    def on_ebMenuAppearance_leave_notify_event(self, widget, event):
-        self.window.get_window().set_cursor(None)
-        self.changeMenuBackground(self.selectedMenuItem)
-
-    def on_ebMenuUsers_button_release_event(self, widget, event=None):
+    def on_btnUsers_clicked(self, widget, event=None):
         if self.selectedMenuItem != menuItems[0]:
-            self.changeMenuBackground(menuItems[0], True)
+            self.selectedMenuItem = menuItems[0]
             self.nbLightDM.set_current_page(0)
 
-    def on_ebMenuAppearance_button_release_event(self, widget, event=None):
+    def on_btnAppearance_clicked(self, widget, event=None):
         if self.selectedMenuItem != menuItems[1]:
-            self.changeMenuBackground(menuItems[1], True)
+            self.selectedMenuItem = menuItems[1]
             self.nbLightDM.set_current_page(1)
-
-    def changeMenuBackground(self, menuItem, select=False):
-        ebs = []
-        ebs.append([menuItems[0], self.ebMenuUsers])
-        ebs.append([menuItems[1], self.ebMenuAppearance])
-        for eb in ebs:
-            if eb[0] == menuItem:
-                if select:
-                    self.selectedMenuItem = menuItem
-                    eb[1].modify_bg(Gtk.StateType.NORMAL, self.clrMenuSelect)
-                else:
-                    if eb[0] != self.selectedMenuItem:
-                        eb[1].modify_bg(Gtk.StateType.NORMAL, self.clrMenuHover)
-            else:
-                if eb[0] != self.selectedMenuItem or select:
-                    eb[1].modify_bg(Gtk.StateType.NORMAL, self.clrMenuBg)
 
     # ===============================================
     # Functions

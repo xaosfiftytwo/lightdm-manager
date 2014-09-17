@@ -1,11 +1,10 @@
 #!/bin/bash
 echo $USER > /tmp/user
-if [ $UID -eq 0 ]; then
-  /usr/bin/python3 /usr/lib/lightdm-manager/lightdm-manager.py $*
-else
-  LAUNCHER="gksudo"
+LAUNCHER=''
+if [ $UID -ne 0 ]; then
+  LAUNCHER='gksudo'
   if [ -e "/usr/bin/kdesudo" ]; then
     LAUNCHER="kdesudo"
   fi
-  $LAUNCHER /usr/bin/python3 /usr/lib/lightdm-manager/lightdm-manager.py $*
 fi
+$LAUNCHER /usr/bin/python3 /usr/lib/lightdm-manager/lightdm-manager.py $*
