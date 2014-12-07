@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"PO-Revision-Date: 2014-08-23 13:11+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../usr/lib/lightdm-manager/user.py:247
+#, fuzzy, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr "Kan inte ta bort gruppen '%(group)s': gruppen är inte tom."
+
+#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:321
+#, fuzzy, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr "Kommandot '%(cmd)s' gav följande felkod: %(ret)d."
+
+#: ../usr/lib/lightdm-manager/user.py:319
+#, fuzzy, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+"Kan inte ta bort användare '%(user)s': processer startade av användaren körs "
+"fortfarande."
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:2
+msgid "LightDM Manager"
+msgstr "LightDM Manager"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+#, fuzzy
+msgid "Users"
+msgstr "Användare"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+#, fuzzy
+msgid "Appearance"
+msgstr "Utseende"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+#, fuzzy
+msgid "Background"
+msgstr "Bakgrund"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+#, fuzzy
+msgid "Theme"
+msgstr "Tema"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+#, fuzzy
+msgid "Menu"
+msgstr "Meny"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+msgid "Hide users"
+msgstr "Dölj användare"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+msgid "User icon"
+msgstr "användarikon"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+#, fuzzy
+msgid "Auto-login"
+msgstr "Inloggningsnamn: "
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+#, fuzzy
+msgid "Select user image"
+msgstr "Välj bild"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid "LightDM settings"
+msgstr "LightDM inställningar"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid ""
+"Settings have changed\n"
+"\n"
+"Do you want to save the new settings?"
+msgstr ""
+"Inställningar har ändrats\n"
+"\n"
+"Vill du spara de nya inställningarna?"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#, fuzzy
+msgid "Saved"
+msgstr "Sparad"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "LightDM settings saved successfully."
+msgstr "LightDM inställningarna har sparats utan problem."
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+msgid "Choose background image"
+msgstr "Välj bakgrundsbild"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#, python-format
+msgid "New background: %(bg)s"
+msgstr "Ny bakgrund: %(bg)s"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#, python-format
+msgid "Auto-login user selected: %(usr)s"
+msgstr "Automatisk login användare vald: %(usr)s"
+
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:1
+msgid "Manager for LightDM"
+msgstr ""

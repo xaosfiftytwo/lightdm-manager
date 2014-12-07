@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-03 13:33+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../usr/lib/lightdm-manager/user.py:247
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:321
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:319
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:2
+msgid "LightDM Manager"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+msgid "Users"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+msgid "Appearance"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+msgid "Background"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+msgid "Theme"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+msgid "Menu"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+msgid "Hide users"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+msgid "User icon"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+msgid "Auto-login"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+msgid "Select user image"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid "LightDM settings"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid ""
+"Settings have changed\n"
+"\n"
+"Do you want to save the new settings?"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "Saved"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "LightDM settings saved successfully."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+msgid "Choose background image"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#, python-format
+msgid "New background: %(bg)s"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#, python-format
+msgid "Auto-login user selected: %(usr)s"
+msgstr ""
+
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:1
+msgid "Manager for LightDM"
+msgstr ""

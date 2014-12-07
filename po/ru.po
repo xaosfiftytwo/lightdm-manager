@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LightDM Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"PO-Revision-Date: 2014-06-26 09:56+0100\n"
+"Last-Translator: Igor Cheprasov <i-cheprasov@live.ru>\n"
+"Language-Team: SolydXK <admin@solydxk.com>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../usr/lib/lightdm-manager/user.py:247
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:321
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:319
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:2
+msgid "LightDM Manager"
+msgstr "Менеджер LightDM"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+msgid "Users"
+msgstr "Пользователи"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+msgid "Background"
+msgstr "Фон"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+msgid "Theme"
+msgstr "Тема"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+msgid "Menu"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+msgid "Hide users"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+msgid "User icon"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+msgid "Auto-login"
+msgstr "Авто-логин"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+msgid "Select user image"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#, fuzzy
+msgid "LightDM settings"
+msgstr "Менеджер LightDM"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#, fuzzy
+msgid ""
+"Settings have changed\n"
+"\n"
+"Do you want to save the new settings?"
+msgstr ""
+"Настройки внешнего вида изменены\n"
+"\n"
+"Хотите сохранить новые настройки?"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "Saved"
+msgstr "Сохранено"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "LightDM settings saved successfully."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+#, fuzzy
+msgid "Choose background image"
+msgstr "Заставка не установлена"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#, python-format
+msgid "New background: %(bg)s"
+msgstr "Новая заставка: %(bg)s"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#, python-format
+msgid "Auto-login user selected: %(usr)s"
+msgstr "Пользователь для авто-логина: %(usr)s"
+
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:1
+msgid "Manager for LightDM"
+msgstr ""
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
+
+#~ msgid "Auto-login user"
+#~ msgstr "Авто-логин пользователя"
+
+#~ msgid ""
+#~ "The auto-login user has changed\n"
+#~ "\n"
+#~ "Do you want to save the new settings?"
+#~ msgstr ""
+#~ "Пользователь для авто-логина изменен\n"
+#~ "\n"
+#~ "Хотите сохранить новые настройки?"
+
+#~ msgid ""
+#~ "Auto-login user saved:\n"
+#~ "\n"
+#~ "%(usr)s"
+#~ msgstr ""
+#~ "Авто-логин пользователя сохранен:\n"
+#~ "\n"
+#~ "%(usr)s"
+
+#~ msgid "New auto-login user: %(usr)s"
+#~ msgstr "Новый авто-логин пользователя: %(usr)s"
+
+#~ msgid "Auto-login has been disabled."
+#~ msgstr "Авто-логин был отключен."
+
+#~ msgid "Auto-login disabled"
+#~ msgstr "Авто-логин отключен"
+
+#~ msgid "Theme: %(theme)s"
+#~ msgstr "Тема: %(theme)s"
+
+#~ msgid "Background: %(bg)s"
+#~ msgstr "Заставка: %(bg)s"
+
+#~ msgid ""
+#~ "LightDM appearance saved:\n"
+#~ "\n"
+#~ "%(msg)s"
+#~ msgstr ""
+#~ "Внешний вид LightDM сохранен:\n"
+#~ "\n"
+#~ "%(msg)s"
+
+#~ msgid "Current background: %(bg)s"
+#~ msgstr "Текущая заставка: %(bg)s"
+
+#~ msgid "New theme: %(theme)s"
+#~ msgstr "Новая тема: %(theme)s"
+
+#~ msgid "No Theme"
+#~ msgstr "Нет темы"
+
+#~ msgid ""
+#~ "Directory does not contain a valid theme engine:\n"
+#~ "\n"
+#~ "Please, choose another theme."
+#~ msgstr ""
+#~ "Директория не содержит подходящих тем:\n"
+#~ "\n"
+#~ "Пожалуйста, выберите другую тему."
+
+#~ msgid "No valid theme: %(dir)s"
+#~ msgstr "Нет подходящих тем: %(dir)s"
+
+#~ msgid "Images"
+#~ msgstr "Изображения"
+
+#~ msgid "Write debug information to file: %(path)s"
+#~ msgstr "Записывать отладочную информацию в файл: %(path)s"
+
+#~ msgid "Machine info: %(info)s"
+#~ msgstr "Информация о компьютере: %(info)s"
+
+#~ msgid "lightdm-manager version: %(version)s"
+#~ msgstr "Менеджер LightDM - версия: %(version)s"
+
+#~ msgid "Please enter your password"
+#~ msgstr "Введите пароль"
+
+#~ msgid "LightDM Manager - Live environment"
+#~ msgstr "Менеджер LightDM - Live-режим"
+
+#~ msgid ""
+#~ "LightDM Manager cannot run in a live environment\n"
+#~ "\n"
+#~ "To force start, use the --force argument"
+#~ msgstr ""
+#~ "Менеджер LightDM не может быть запущен в live-режиме\n"
+#~ "\n"
+#~ "Для принудительного запуска используйте --force"
+
+#~ msgid "LightDM Manager - Debian based"
+#~ msgstr "LightDM Manager - Debian-based"
+
+#~ msgid "LightDM Manager can only run on Debian based distributions"
+#~ msgstr ""
+#~ "Менеджер LightDM может быть запущен только в Debian-based дистрибутивах"
+
+#~ msgid "LightDM not installed - quitting."
+#~ msgstr "LightDM не установлен - выход."

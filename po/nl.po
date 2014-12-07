@@ -1,0 +1,321 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lightdm-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"PO-Revision-Date: 2014-04-22 11:25+0100\n"
+"Last-Translator: Schoelje <schoelje@solydxk.com>\n"
+"Language-Team: SolydXK <admin@solydxk.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../usr/lib/lightdm-manager/user.py:247
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr "Kan groep '%(group)s' niet verwijderen: niet leeg."
+
+#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:321
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr "Het commando '%(cmd)s' retourneerde een error code: %(ret)d."
+
+#: ../usr/lib/lightdm-manager/user.py:319
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+"Kan gebruiker '%(user)s' niet verwijderen: er lopen nog processen die door "
+"deze gebruiker gestart zijn."
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:2
+msgid "LightDM Manager"
+msgstr "LightDM Manager"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+msgid "Users"
+msgstr "Gebruikers"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+msgid "Background"
+msgstr "Achtergrond"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+msgid "Theme"
+msgstr "Thema"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+msgid "Menu"
+msgstr "Menu"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+msgid "Hide users"
+msgstr "Verberg gebruikers"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+msgid "User icon"
+msgstr "Gebruikers icoon"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+msgid "Auto-login"
+msgstr "Auto-login"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+msgid "Select user image"
+msgstr "Selecteer gebruikersafbeelding"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid "LightDM settings"
+msgstr "LightDM instellingen"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+msgid ""
+"Settings have changed\n"
+"\n"
+"Do you want to save the new settings?"
+msgstr ""
+"De instellingen zijn gewijzigd\n"
+"\n"
+"Wilt u de nieuwe instellingen bewaren?"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "Saved"
+msgstr "Bewaard"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "LightDM settings saved successfully."
+msgstr "LightDM instellingen bewaard."
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+msgid "Choose background image"
+msgstr "Kies een achtergrondafbeelding"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#, python-format
+msgid "New background: %(bg)s"
+msgstr "Nieuwe achtergrond: %(bg)s"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#, python-format
+msgid "Auto-login user selected: %(usr)s"
+msgstr "Auto-login gebruiker geselecteerd: %(usr)s"
+
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:1
+msgid "Manager for LightDM"
+msgstr ""
+
+#~ msgid "Save"
+#~ msgstr "Bewaren"
+
+#~ msgid "Auto-login user"
+#~ msgstr "Auto-login gebruiker"
+
+#~ msgid ""
+#~ "The auto-login user has changed\n"
+#~ "\n"
+#~ "Do you want to save the new settings?"
+#~ msgstr ""
+#~ "De auto-login gebruiker is gewijzigd\n"
+#~ "\n"
+#~ "Wilt u de nieuwe instellingen bewaren?"
+
+#~ msgid ""
+#~ "Auto-login user saved:\n"
+#~ "\n"
+#~ "%(usr)s"
+#~ msgstr ""
+#~ "Auto-login gebruiker bewaard:\n"
+#~ "\n"
+#~ "%(usr)s"
+
+#~ msgid "New auto-login user: %(usr)s"
+#~ msgstr "Nieuwe auto-login gebruiker: %(usr)s"
+
+#~ msgid "Auto-login has been disabled."
+#~ msgstr "Auto-login is uitgezet."
+
+#~ msgid "Auto-login disabled"
+#~ msgstr "Auto-login uitgezet."
+
+#~ msgid "Theme: %(theme)s"
+#~ msgstr "Thema: %(theme)s"
+
+#~ msgid "Background: %(bg)s"
+#~ msgstr "Achtergrond: %(bg)s"
+
+#~ msgid ""
+#~ "LightDM appearance saved:\n"
+#~ "\n"
+#~ "%(msg)s"
+#~ msgstr ""
+#~ "LightDM uiterlijk bewaard:\n"
+#~ "\n"
+#~ "%(msg)s"
+
+#~ msgid "Current background: %(bg)s"
+#~ msgstr "Huidige achtergrond: %(bg)s"
+
+#~ msgid "New theme: %(theme)s"
+#~ msgstr "Nieuw thema: %(theme)s"
+
+#~ msgid "No Theme"
+#~ msgstr "Geen thema"
+
+#~ msgid ""
+#~ "Directory does not contain a valid theme engine:\n"
+#~ "\n"
+#~ "Please, choose another theme."
+#~ msgstr ""
+#~ "Directory bevat geen valide thema's:\n"
+#~ "\n"
+#~ "Kiest u een ander thema."
+
+#~ msgid "No valid theme: %(dir)s"
+#~ msgstr "Geen valide thema: %(dir)s"
+
+#~ msgid "Images"
+#~ msgstr "Afbeeldingen"
+
+#~ msgid "Write debug information to file: %(path)s"
+#~ msgstr "Schrijf debug informatie naar bestand: %(path)s"
+
+#~ msgid "Machine info: %(info)s"
+#~ msgstr "Machine informatie: %(info)s"
+
+#~ msgid "lightdm-manager version: %(version)s"
+#~ msgstr "lightdm-manager versie: %(version)s"
+
+#~ msgid "Please enter your password"
+#~ msgstr "Vul uw wachtwoord in"
+
+#~ msgid "LightDM Manager - Live environment"
+#~ msgstr "LightDM Manager - Live omgeving"
+
+#~ msgid ""
+#~ "LightDM Manager cannot run in a live environment\n"
+#~ "\n"
+#~ "To force start, use the --force argument"
+#~ msgstr ""
+#~ "LightDM Manager kan niet in een live omgeving gestart worden\n"
+#~ "\n"
+#~ "Om toch te starten, gebruik het --force argument"
+
+#~ msgid "LightDM Manager - Debian based"
+#~ msgstr "LightDM Manager - Debian gebaseerd"
+
+#~ msgid "LightDM Manager can only run on Debian based distributions"
+#~ msgstr ""
+#~ "LightDM Manager kan alleen op Debian gebaseerde distributies draaien"
+
+#~ msgid "LightDM not installed - quitting."
+#~ msgstr "LightDM not geïnstalleerd - afsluiten."
+
+#~ msgid "Command to execute: %(cmd)s"
+#~ msgstr "Opdracht uitvoeren: %(cmd)s"
+
+#~ msgid "Search for extensions: %(ext)s"
+#~ msgstr "Zoek naar extensies: %(ext)s"
+
+#~ msgid "File with extension found: %(path)s"
+#~ msgstr "Bestand niet gevonden met extensie: %(path)s"
+
+#~ msgid "File found: %(path)s"
+#~ msgstr "Bestand gevonden: %(path)s"
+
+#~ msgid "Resolution added: %(res)s"
+#~ msgstr "Resolutie toegevoegd: %(res)s"
+
+#~ msgid "Package is installed: %(package)s"
+#~ msgstr "Pakket geïnstalleerd: %(package)s"
+
+#~ msgid "Package not installed: %(package)s"
+#~ msgstr "Pakket niet geïnstalleerd: %(package)s"
+
+#~ msgid "Package not found: %(package)s"
+#~ msgstr "Pakket niet gevonden: %(package)s"
+
+#~ msgid "Could not get status info for package: %(package)s"
+#~ msgstr "Statusinformatie niet beschikbaar voor pakket: %(package)s"
+
+#~ msgid "Found themedir: %(dir)s and theme name: %(theme)s"
+#~ msgstr "Themadirectory gevonden: %(dir)s en thema: %(theme)s"
+
+#~ msgid "%(conf1)s copied to %(conf2)s.org"
+#~ msgstr "%(conf1)s gecopieerd naar %(conf2)s.org"
+
+#~ msgid "Search %(theme)s in %(dir)s"
+#~ msgstr "Zoek %(theme)s in %(dir)s"
+
+#~ msgid "Current theme directory: %(dir)s"
+#~ msgstr "Huidig themadirectory: %(dir)s"
+
+#~ msgid "Startup command: %(cmd)s"
+#~ msgstr "Startopdracht: %(cmd)s"
+
+#~ msgid "Create list store eval string: %(eval)s"
+#~ msgstr "Maak list store eval string: %(eval)s"
+
+#~ msgid "Clear existing list store"
+#~ msgstr "Maak bestaande list store leeg"
+
+#~ msgid "First item is column name (multi-column list): %(iscolname)s"
+#~ msgstr "Eerste item is kolomnaam (multi-kolom lijst): %(iscolname)s"
+
+#~ msgid "First item is column name (single-column list): %(iscolname)s"
+#~ msgstr "Eerste item is kolomnaam (enkele-kolom lijst): %(iscolname)s"
+
+#~ msgid "Create column names: %(cols)s"
+#~ msgstr "Maak kolomnamen: %(cols)s"
+
+#~ msgid "First item is column name: skip first item"
+#~ msgstr "Eerste item is kolomnaam: sla eerste item over"
+
+#~ msgid "Add data to list store: %(data)s"
+#~ msgstr "Voeg data toe aan list store: %(data)s"
+
+#~ msgid "Add data to top of list store: %(totop)s"
+#~ msgstr "Voeg data bovenaan toe aan list store: %(totop)s"
+
+#~ msgid "Add data to bottom of list store: %(tobottom)s"
+#~ msgstr "Voeg data onderaan to aan list store: %(tobottom)s"
+
+#~ msgid "Last visible column nr: %(colnr)d"
+#~ msgstr "Laatste zichtbare kolomnr: %(colnr)d"
+
+#~ msgid "Hide column nr: %(colnr)d"
+#~ msgstr "Verberg kolomnr: %(colnr)d"
+
+#~ msgid "Create column: %(col)s"
+#~ msgstr "Maak kolom: %(col)s"
+
+#~ msgid "Check box found: add toggle function"
+#~ msgstr "Selectievakje gevonden: voeg schakelfunctie toe"
+
+#~ msgid "Last column fills treeview: %(colnr)d"
+#~ msgstr "Laatste kolom vult treeview: %(colnr)d"
+
+#~ msgid "Column added: %(col)s"
+#~ msgstr "Kolom toegevoegd: %(col)s"
+
+#~ msgid "Column already exists: %(col)s"
+#~ msgstr "Kolom bestaat reeds: %(col)s"
+
+#~ msgid "Add Liststore to Treeview"
+#~ msgstr "Voeg Liststore toe aan Treeview"
+
+#~ msgid "Scrolled to selected row: %(row)d"
+#~ msgstr "Naar geselecteerde rij gescrold: %(row)d"

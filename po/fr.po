@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lightdm-manager 0.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"PO-Revision-Date: 2013-09-04 21:47+0100\n"
+"Last-Translator: Kyodev <kyodev@gmail.com>\n"
+"Language-Team: solyd-fr <admin@solydxk.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../usr/lib/lightdm-manager/user.py:247
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:321
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:319
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:2
+msgid "LightDM Manager"
+msgstr "LightDM Manager"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+msgid "Appearance"
+msgstr "Apparence"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+msgid "Background"
+msgstr "Fond"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+msgid "Theme"
+msgstr "Thème"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+msgid "Menu"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+msgid "Hide users"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+msgid "User icon"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+msgid "Auto-login"
+msgstr "Connexion automatique"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+msgid "Select user image"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#, fuzzy
+msgid "LightDM settings"
+msgstr "LightDM Manager"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#, fuzzy
+msgid ""
+"Settings have changed\n"
+"\n"
+"Do you want to save the new settings?"
+msgstr ""
+"La configuration de l'apparence été modifiée.\n"
+"Voulez-vous enregistrer ces modifications?"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "Saved"
+msgstr "Enregistré"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+msgid "LightDM settings saved successfully."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+#, fuzzy
+msgid "Choose background image"
+msgstr "Pas de fond d'écran défini"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#, python-format
+msgid "New background: %(bg)s"
+msgstr "Nouveau fond: %(bg)s"
+
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#, python-format
+msgid "Auto-login user selected: %(usr)s"
+msgstr "Connexion automatique de l'utilisateur sélectionnée: %(usr)s"
+
+#: ../usr/share/applications/lightdm-manager.desktop.in.h:1
+msgid "Manager for LightDM"
+msgstr ""
+
+#~ msgid "Command to execute: %(cmd)s"
+#~ msgstr "Commande à exécuter: %(cmd)s"
+
+#~ msgid "Search for extensions: %(ext)s"
+#~ msgstr "Rechercher des extensions: %(ext)s"
+
+#~ msgid "File with extension found: %(path)s"
+#~ msgstr "Fichier avec extension trouvé: %(path)s"
+
+#~ msgid "File found: %(path)s"
+#~ msgstr "Fichier trouvé: %(path)s"
+
+#~ msgid "Resolution added: %(res)s"
+#~ msgstr "Résolution ajoutée: %(res)s"
+
+#~ msgid "Package is installed: %(package)s"
+#~ msgstr "Paquet installé: %(package)s"
+
+#~ msgid "Package not installed: %(package)s"
+#~ msgstr "Paquet non installé: %(package)s"
+
+#~ msgid "Package not found: %(package)s"
+#~ msgstr "Paquet non trouvé: %(package)s"
+
+#~ msgid "Could not get status info for package: %(package)s"
+#~ msgstr "Impossible d'obtenir le statut pour le paquet: %(package)s"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Auto-login user"
+#~ msgstr "Connexion automatique de l'utilisateur"
+
+#~ msgid ""
+#~ "The auto-login user has changed\n"
+#~ "\n"
+#~ "Do you want to save the new settings?"
+#~ msgstr ""
+#~ "La connexion automatique de l'utilisateur a été modifiée\n"
+#~ "\n"
+#~ "Voulez-vous enregistrer ces nouveaux réglages?"
+
+#~ msgid ""
+#~ "Auto-login user saved:\n"
+#~ "\n"
+#~ "%(usr)s"
+#~ msgstr ""
+#~ "Connexion automatique de l'utilisateur enregistrée:\n"
+#~ "\n"
+#~ "%(usr)s"
+
+#~ msgid "New auto-login user: %(usr)s"
+#~ msgstr "Nouvelle connexion automatique de l'utilisateur: %(usr)s"
+
+#~ msgid "Auto-login has been disabled."
+#~ msgstr "La connexion automatique a été désactivée."
+
+#~ msgid "Auto-login disabled"
+#~ msgstr "Connexion automatique désactivée"
+
+#~ msgid "Theme: %(theme)s"
+#~ msgstr "Thème: %(theme)s"
+
+#~ msgid "Background: %(bg)s"
+#~ msgstr "Fond d'écran: %(bg)s"
+
+#~ msgid ""
+#~ "LightDM appearance saved:\n"
+#~ "\n"
+#~ "%(msg)s"
+#~ msgstr ""
+#~ "Apparence LightDM sauvegardée:\n"
+#~ "\n"
+#~ "%(msg)s"
+
+#~ msgid "Current background: %(bg)s"
+#~ msgstr "Fond actuel: %(bg)s"
+
+#~ msgid "New theme: %(theme)s"
+#~ msgstr "Nouveau thème: %(theme)s"
+
+#~ msgid "No Theme"
+#~ msgstr "Pas de thème"
+
+#~ msgid ""
+#~ "Directory does not contain a valid theme engine:\n"
+#~ "\n"
+#~ "Please, choose another theme."
+#~ msgstr ""
+#~ "Le répertoire ne contient pas de thème valide:\n"
+#~ "\n"
+#~ "Choisissez un autre thème."
+
+#~ msgid "No valid theme: %(dir)s"
+#~ msgstr "Pas de thème valide: %(dir)s"
+
+#~ msgid "Found themedir: %(dir)s and theme name: %(theme)s"
+#~ msgstr "Thème, répertoire: %(dir)s et nom: %(theme)s"
+
+#~ msgid "%(conf1)s copied to %(conf2)s.org"
+#~ msgstr "%(conf1)s copié dans %(conf2)s.org"
+
+#~ msgid "Images"
+#~ msgstr "Images"
+
+#~ msgid "Search %(theme)s in %(dir)s"
+#~ msgstr "Chercher %(theme)s dans %(dir)s"
+
+#~ msgid "Current theme directory: %(dir)s"
+#~ msgstr "Répertoire du thème courant: %(dir)s"
+
+#~ msgid "Write debug information to file: %(path)s"
+#~ msgstr ""
+#~ "Enregistrement des informations de débogage dans le fichier: %(path)s"
+
+#~ msgid "Machine info: %(info)s"
+#~ msgstr "Machine info: %(info)s"
+
+#~ msgid "lightdm-manager version: %(version)s"
+#~ msgstr "LightDM Manager version: %(version)s"
+
+#~ msgid "Please enter your password"
+#~ msgstr "Veuillez saisir votre mot de passe."
+
+#~ msgid "Startup command: %(cmd)s"
+#~ msgstr "Commande de démarrage: %(cmd)s"
+
+#~ msgid "LightDM Manager - Live environment"
+#~ msgstr "LightDM Manager - Environnement Live"
+
+#~ msgid ""
+#~ "LightDM Manager cannot run in a live environment\n"
+#~ "\n"
+#~ "To force start, use the --force argument"
+#~ msgstr ""
+#~ "LightDM Manager ne peut fonctionner dans un environnement Live\n"
+#~ "\n"
+#~ "Pour forcer le démarrage, utiliser l'argument --force"
+
+#~ msgid "LightDM Manager - Debian based"
+#~ msgstr "LightDM Manager - base Debian"
+
+#~ msgid "LightDM Manager can only run on Debian based distributions"
+#~ msgstr ""
+#~ "LightDM Manager peut seulement fonctionner sur les distributions basées "
+#~ "sur Debian"
+
+#~ msgid "LightDM not installed - quitting."
+#~ msgstr "LightDM non installé - Arrêt."
+
+#~ msgid "Create list store eval string: %(eval)s"
+#~ msgstr "Création liste de chaînes: %(eval)s"
+
+#~ msgid "Clear existing list store"
+#~ msgstr "Effacement de la liste existante"
+
+#~ msgid "First item is column name (multi-column list): %(iscolname)s"
+#~ msgstr ""
+#~ "Le premier élément est un nom de colonne (liste multi-colonnes): "
+#~ "%(iscolname)s"
+
+#~ msgid "First item is column name (single-column list): %(iscolname)s"
+#~ msgstr ""
+#~ "Le premier élément est un nom de colonne (liste simple-colonne): "
+#~ "%(iscolname)s"
+
+#~ msgid "Create column names: %(cols)s"
+#~ msgstr "Création des noms de colonne: %(cols)s"
+
+#~ msgid "First item is column name: skip first item"
+#~ msgstr "Le premier élément est un nom de colonne: premier élément ignoré"
+
+#~ msgid "Add data to list store: %(data)s"
+#~ msgstr "Ajout de la donnée à la liste: %(data)s"
+
+#~ msgid "Add data to top of list store: %(totop)s"
+#~ msgstr "Ajout de la donnée au début de la liste: %(totop)s"
+
+#~ msgid "Add data to bottom of list store: %(tobottom)s"
+#~ msgstr "Ajout de la donnée à la fin de la liste: %(tobottom)s"
+
+#~ msgid "Last visible column nr: %(colnr)d"
+#~ msgstr "Dernière colonne visible n°: %(colnr)d"
+
+#~ msgid "Hide column nr: %(colnr)d"
+#~ msgstr "Cache colonne n°: %(colnr)d"
+
+#~ msgid "Create column: %(col)s"
+#~ msgstr "Création de la colonne: %(col)s"
+
+#~ msgid "Check box found: add toggle function"
+#~ msgstr "Case à cocher trouvée: ajout fonction bascule"
+
+#~ msgid "Last column fills treeview: %(colnr)d"
+#~ msgstr "La dernière colonne remplit l'arborescence: %(colnr)d"
+
+#~ msgid "Column added: %(col)s"
+#~ msgstr "Colonne ajoutée: %(col)s"
+
+#~ msgid "Column already exists: %(col)s"
+#~ msgstr "Colonne déjà existante: %(col)s"
+
+#~ msgid "Add Liststore to Treeview"
+#~ msgstr "Ajout de la liste à l'arborescence"
+
+#~ msgid "Scrolled to selected row: %(row)d"
+#~ msgstr "Défilement jusqu'à la ligne sélectionnée: %(row)d"

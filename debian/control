@@ -1,15 +1,23 @@
 Source: lightdm-manager
 Section: admin
 Priority: optional
-Maintainer: Schoelje <schoelje@solydxk.com>
-Build-Depends: debhelper (>= 5)
-Standards-Version: 3.7.2
+Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
+Build-Depends: debhelper (>= 9)
+  , python
+  , intltool
+X-Python-Version: >= 3.0
+Standards-Version: 3.9.5
+Vcs-Git: git://github.com/SolydXK/lightdm-manager.git
+Vcs-Browser: https://github.com/SolydXK/lightdm-manager
 
 Package: lightdm-manager
 Architecture: all
-Installed-Size: 300
-Depends: python3, python3-gi, python3-apt, gir1.2-gtk-3.0, lightdm-gtk-greeter | lightdm-kde-greeter
-Section: admin
-Priority: optional
-Homepage: http://solydxk.com/
+Depends: ${misc:Depends}, ${python:Depends}
+  , python3
+  , python3-gi
+  , python3-apt
+  , gir1.2-gtk-3.0
+  , lightdm-gtk-greeter | lightdm-kde-greeter
+Conflicts: solydxk-locale
+Replaces: solydxk-locale
 Description: Manager for LightDM.
