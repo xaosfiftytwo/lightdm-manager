@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"POT-Creation-Date: 2015-01-01 20:20+0100\n"
 "PO-Revision-Date: 2014-04-22 11:25+0100\n"
 "Last-Translator: Schoelje <schoelje@solydxk.com>\n"
 "Language-Team: SolydXK <admin@solydxk.com>\n"
@@ -17,25 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
-
-#: ../usr/lib/lightdm-manager/user.py:247
-#, python-format
-msgid "Cannot remove group '%(group)s': not empty."
-msgstr "Kan groep '%(group)s' niet verwijderen: niet leeg."
-
-#: ../usr/lib/lightdm-manager/user.py:249
-#: ../usr/lib/lightdm-manager/user.py:321
-#, python-format
-msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr "Het commando '%(cmd)s' retourneerde een error code: %(ret)d."
-
-#: ../usr/lib/lightdm-manager/user.py:319
-#, python-format
-msgid ""
-"Cannot remove user '%(user)s': processes started by user are still running."
-msgstr ""
-"Kan gebruiker '%(user)s' niet verwijderen: er lopen nog processen die door "
-"deze gebruiker gestart zijn."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
@@ -74,15 +55,15 @@ msgstr "Gebruikers icoon"
 msgid "Auto-login"
 msgstr "Auto-login"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
 msgid "Select user image"
 msgstr "Selecteer gebruikersafbeelding"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid "LightDM settings"
 msgstr "LightDM instellingen"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid ""
 "Settings have changed\n"
 "\n"
@@ -92,27 +73,46 @@ msgstr ""
 "\n"
 "Wilt u de nieuwe instellingen bewaren?"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "Saved"
 msgstr "Bewaard"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "LightDM settings saved successfully."
 msgstr "LightDM instellingen bewaard."
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Choose background image"
 msgstr "Kies een achtergrondafbeelding"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
 msgid "New background: %(bg)s"
 msgstr "Nieuwe achtergrond: %(bg)s"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Auto-login gebruiker geselecteerd: %(usr)s"
+
+#: ../usr/lib/lightdm-manager/user.py:250
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr "Kan groep '%(group)s' niet verwijderen: niet leeg."
+
+#: ../usr/lib/lightdm-manager/user.py:252
+#: ../usr/lib/lightdm-manager/user.py:324
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr "Het commando '%(cmd)s' retourneerde een error code: %(ret)d."
+
+#: ../usr/lib/lightdm-manager/user.py:322
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+"Kan gebruiker '%(user)s' niet verwijderen: er lopen nog processen die door "
+"deze gebruiker gestart zijn."
 
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"

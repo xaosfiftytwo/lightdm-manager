@@ -5,7 +5,8 @@ Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
 Build-Depends: debhelper (>= 9)
   , python
   , intltool
-X-Python-Version: >= 3.0
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.2
 Standards-Version: 3.9.5
 Vcs-Git: git://github.com/SolydXK/lightdm-manager.git
 Vcs-Browser: https://github.com/SolydXK/lightdm-manager

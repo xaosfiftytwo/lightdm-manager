@@ -63,8 +63,8 @@ class LightDMManager:
         # Translations
         title = _("LightDM Manager")
         self.window.set_title(title)
-        self.btnUsers.set_label(_("Users"))
-        self.btnAppearance.set_label(_("Appearance"))
+        self.btnUsers.set_label("_{}".format(_("Users")))
+        self.btnAppearance.set_label("_{}".format(_("Appearance")))
         go('lblBackground').set_label(_("Background"))
         go('lblTheme').set_label(_("Theme"))
         go('lblLightDmMenu').set_label(_("Menu"))
@@ -104,9 +104,8 @@ class LightDMManager:
         self.logPath = ''
         self.prevPath = None
         self.tempFace = "/tmp/face"
-        self.tempUser = "/tmp/user"
         self.newFaces = []
-        self.loggedUser = functions.getFileContents(self.tempUser)
+        self.loggedUser = functions.getUserLoginName()
         self.curUser = self.loggedUser
         self.selectImg = join(self.scriptDir, '../../share/lightdm-manager/select.png')
 
@@ -371,7 +370,6 @@ class LightDMManager:
     def on_ldmWindow_destroy(self, widget, data=None):
         # Close the app
         self.on_btnSave_clicked(None)
-        os.remove(self.tempUser)
         for tmp in self.newFaces:
             os.remove(tmp[0])
         Gtk.main_quit()

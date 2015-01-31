@@ -47,13 +47,11 @@ def locate(pattern, root=os.curdir, locateDirsOnly=False):
 
 # Get the login name of the current user
 def getUserLoginName():
-    p = os.popen('logname', 'r')
-    userName = p.readline().strip()
-    p.close()
-    if userName == "":
-        userName = pwd.getpwuid(os.getuid()).pw_name
-    return userName
-
+    ret = ec.run('logname')
+    if ret:
+        return ret[0]
+    else:
+        return ''
 
 def repaintGui():
     # Force repaint: ugly, but gui gets repainted so fast that gtk objects don't show it

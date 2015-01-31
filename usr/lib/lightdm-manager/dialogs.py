@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, GObject, GdkPixbuf
 
+
 # Show message dialog
 # Usage:
 # MessageDialog(_("My Title"), "Your (error) message here", Gtk.MessageType.ERROR).show()
@@ -16,8 +17,7 @@ class MessageDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, parent, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, style, Gtk.ButtonsType.OK, message)
         self.set_default_response(Gtk.ResponseType.OK)
         self.set_position(Gtk.WindowPosition.CENTER)
-        self.set_markup("<b>%s</b>" % title)
-        self.format_secondary_markup(message)
+        self.set_title(title)
         if parent is not None:
             self.set_icon(parent.get_icon())
         self.connect('response', self._handle_clicked)
@@ -40,7 +40,7 @@ class MessageDialog(Gtk.MessageDialog):
 # Gtk.MessageType.INFO
 # Gtk.MessageType.WARNING
 # Gtk.MessageType.ERROR
-# MessageDialogSafe can NOT be called from a working thread, only from main (UI) thread
+# MessageDialogSave can NOT be called from a working thread, only from main (UI) thread
 class MessageDialogSafe(object):
     def __init__(self, title, message, style, parent=None):
         self.title = title
@@ -50,8 +50,7 @@ class MessageDialogSafe(object):
 
     def show(self):
         dialog = Gtk.MessageDialog(self.parent, Gtk.DialogFlags.MODAL, self.style, Gtk.ButtonsType.OK, self.message)
-        dialog.set_markup("<b>%s</b>" % self.title)
-        dialog.format_secondary_markup(self.message)
+        dialog.set_title(self.title)
         if self.parent is not None:
             dialog.set_icon(self.parent.get_icon())
         dialog.run()
@@ -72,8 +71,7 @@ class QuestionDialog(object):
     #''' Show me on screen '''
     def show(self):
         dialog = Gtk.MessageDialog(self.parent, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT, Gtk.MessageType.QUESTION, Gtk.ButtonsType.YES_NO, self.message)
-        dialog.set_markup("<b>%s</b>" % self.title)
-        dialog.format_secondary_markup(self.message)
+        dialog.set_title(self.title)
         dialog.set_position(Gtk.WindowPosition.CENTER)
         if self.parent is not None:
             dialog.set_icon(self.parent.get_icon())
@@ -86,14 +84,24 @@ class QuestionDialog(object):
         return return_value
 
 
-class SelectImageDialog(object):
-    def __init__(self, title, start_directory=None, parent=None):
+# You can pass a Gtk.FileFilter object.
+# Use add_mime_type, and add_pattern.
+# Get the mime type of a file: $ mimetype [file]
+# e.g.: $ mimetype solydx32_201311.iso
+#         solydx32_201311.iso: application/x-cd-image
+class SelectFileDialog(object):
+    def __init__(self, title, start_directory=None, parent=None, gtkFileFilter=None):
         self.title = title
         self.start_directory = start_directory
         self.parent = parent
+        self.gtkFileFilter = gtkFileFilter
+        self.isImages = False
+        if gtkFileFilter is not None:
+            if gtkFileFilter.get_name() == "Images":
+                self.isImages = True
 
     def show(self):
-        imagePath = None
+        filePath = None
         image = Gtk.Image()
 
         # Image preview function
@@ -111,6 +119,28 @@ class SelectImageDialog(object):
         dialog.set_default_response(Gtk.ResponseType.OK)
         if self.start_directory is not None:
             dialog.set_current_folder(self.start_directory)
+        if self.gtkFileFilter is not None:
+            dialog.add_filter(self.gtkFileFilter)
+
+        if self.isImages:
+            # Add a preview widget:
+            dialog.set_preview_widget(image)
+            dialog.connect("update-preview", image_preview_cb)
+
+        answer = dialog.run()
+        if answer == Gtk.ResponseType.OK:
+            filePath = dialog.get_filename()
+        dialog.destroy()
+        return filePath
+
+
+class SelectImageDialog(object):
+    def __init__(self, title, start_directory=None, parent=None):
+        self.title = title
+        self.start_directory = start_directory
+        self.parent = parent
+
+    def show(self):
         fleFilter = Gtk.FileFilter()
         fleFilter.set_name("Images")
         fleFilter.add_mime_type("image/png")
@@ -121,17 +151,8 @@ class SelectImageDialog(object):
         fleFilter.add_pattern("*.gif")
         fleFilter.add_pattern("*.tif")
         fleFilter.add_pattern("*.xpm")
-        dialog.add_filter(fleFilter)
-
-        # Add a preview widget:
-        dialog.set_preview_widget(image)
-        dialog.connect("update-preview", image_preview_cb)
-
-        answer = dialog.run()
-        if answer == Gtk.ResponseType.OK:
-            imagePath = dialog.get_filename()
-        dialog.destroy()
-        return imagePath
+        fdg = SelectFileDialog(self.title, self.start_directory, self.parent, fleFilter)
+        return fdg.show()
 
 
 class SelectDirectoryDialog(object):

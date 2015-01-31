@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 18:45+0100\n"
+"POT-Creation-Date: 2015-01-01 20:20+0100\n"
 "PO-Revision-Date: 2014-08-23 13:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,25 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-
-#: ../usr/lib/lightdm-manager/user.py:247
-#, fuzzy, python-format
-msgid "Cannot remove group '%(group)s': not empty."
-msgstr "Kan inte ta bort gruppen '%(group)s': gruppen är inte tom."
-
-#: ../usr/lib/lightdm-manager/user.py:249
-#: ../usr/lib/lightdm-manager/user.py:321
-#, fuzzy, python-format
-msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr "Kommandot '%(cmd)s' gav följande felkod: %(ret)d."
-
-#: ../usr/lib/lightdm-manager/user.py:319
-#, fuzzy, python-format
-msgid ""
-"Cannot remove user '%(user)s': processes started by user are still running."
-msgstr ""
-"Kan inte ta bort användare '%(user)s': processer startade av användaren körs "
-"fortfarande."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
@@ -79,16 +60,16 @@ msgstr "användarikon"
 msgid "Auto-login"
 msgstr "Inloggningsnamn: "
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
 #, fuzzy
 msgid "Select user image"
 msgstr "Välj bild"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid "LightDM settings"
 msgstr "LightDM inställningar"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid ""
 "Settings have changed\n"
 "\n"
@@ -98,28 +79,47 @@ msgstr ""
 "\n"
 "Vill du spara de nya inställningarna?"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 #, fuzzy
 msgid "Saved"
 msgstr "Sparad"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "LightDM settings saved successfully."
 msgstr "LightDM inställningarna har sparats utan problem."
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Choose background image"
 msgstr "Välj bakgrundsbild"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
 msgid "New background: %(bg)s"
 msgstr "Ny bakgrund: %(bg)s"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Automatisk login användare vald: %(usr)s"
+
+#: ../usr/lib/lightdm-manager/user.py:250
+#, fuzzy, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr "Kan inte ta bort gruppen '%(group)s': gruppen är inte tom."
+
+#: ../usr/lib/lightdm-manager/user.py:252
+#: ../usr/lib/lightdm-manager/user.py:324
+#, fuzzy, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr "Kommandot '%(cmd)s' gav följande felkod: %(ret)d."
+
+#: ../usr/lib/lightdm-manager/user.py:322
+#, fuzzy, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
+msgstr ""
+"Kan inte ta bort användare '%(user)s': processer startade av användaren körs "
+"fortfarande."
 
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"

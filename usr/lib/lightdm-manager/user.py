@@ -1,5 +1,4 @@
 #! /usr/bin/env python3
-#-*- coding: utf-8 -*-
 
 import os
 import pwd
@@ -167,8 +166,11 @@ class User(object):
                 face = join(homeDir, ".face.icon")
 
             if face is None:
+                genericFace = '/usr/share/pixmaps/faces/user-generic.png'
                 kdeFace = '/usr/share/kde4/apps/kdm/faces/.default.face.icon'
-                if exists(kdeFace):
+                if exists(genericFace):
+                    face = genericFace
+                elif exists(kdeFace):
                     face = kdeFace
                 else:
                     defaultTheme = Gtk.IconTheme.get_default()

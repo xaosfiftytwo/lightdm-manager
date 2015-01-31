@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-03 13:33+0100\n"
+"POT-Creation-Date: 2015-01-01 20:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../usr/lib/lightdm-manager/user.py:247
-#, python-format
-msgid "Cannot remove group '%(group)s': not empty."
-msgstr ""
-
-#: ../usr/lib/lightdm-manager/user.py:249
-#: ../usr/lib/lightdm-manager/user.py:321
-#, python-format
-msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr ""
-
-#: ../usr/lib/lightdm-manager/user.py:319
-#, python-format
-msgid ""
-"Cannot remove user '%(user)s': processes started by user are still running."
-msgstr ""
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
@@ -71,41 +54,58 @@ msgstr ""
 msgid "Auto-login"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:190
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
 msgid "Select user image"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid "LightDM settings"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:238
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
 msgid ""
 "Settings have changed\n"
 "\n"
 "Do you want to save the new settings?"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "Saved"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:289
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "LightDM settings saved successfully."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:293
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Choose background image"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
 msgid "New background: %(bg)s"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:318
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:250
+#, python-format
+msgid "Cannot remove group '%(group)s': not empty."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:252
+#: ../usr/lib/lightdm-manager/user.py:324
+#, python-format
+msgid "The command '%(cmd)s' returned error code: %(ret)d."
+msgstr ""
+
+#: ../usr/lib/lightdm-manager/user.py:322
+#, python-format
+msgid ""
+"Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""
 
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
