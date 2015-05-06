@@ -1,9 +1,7 @@
 #! /usr/bin/env python3
-#-*- coding: utf-8 -*-
 
 try:
     import os
-    import pwd
     import shutil
     import re
     import operator

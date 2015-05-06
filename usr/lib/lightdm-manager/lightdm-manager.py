@@ -1,5 +1,4 @@
 #! /usr/bin/env python3
-#-*- coding: utf-8 -*-
 
 # from gi.repository import Gtk, GdkPixbuf, GObject, Pango, Gdk
 from gi.repository import Gtk, Gdk, GdkPixbuf
@@ -23,6 +22,7 @@ menuItems = ['users', 'appearance']
 
 # i18n
 gettext.install("lightdm-manager", "/usr/share/locale")
+#_ = gettext.gettext
 
 
 #class for the main window

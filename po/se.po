@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-01 20:20+0100\n"
+"POT-Creation-Date: 2015-04-29 17:46+0200\n"
 "PO-Revision-Date: 2014-08-23 13:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,18 +102,18 @@ msgstr "Ny bakgrund: %(bg)s"
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Automatisk login användare vald: %(usr)s"
 
-#: ../usr/lib/lightdm-manager/user.py:250
+#: ../usr/lib/lightdm-manager/user.py:249
 #, fuzzy, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr "Kan inte ta bort gruppen '%(group)s': gruppen är inte tom."
 
-#: ../usr/lib/lightdm-manager/user.py:252
-#: ../usr/lib/lightdm-manager/user.py:324
+#: ../usr/lib/lightdm-manager/user.py:251
+#: ../usr/lib/lightdm-manager/user.py:323
 #, fuzzy, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr "Kommandot '%(cmd)s' gav följande felkod: %(ret)d."
 
-#: ../usr/lib/lightdm-manager/user.py:322
+#: ../usr/lib/lightdm-manager/user.py:321
 #, fuzzy, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."

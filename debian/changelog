@@ -1,3 +1,16 @@
+lightdm-manager (0.7.0) debian; urgency=low
+
+  * Added X-XFCE-SettingsDialog;X-XFCE-SystemSettings; to launcher
+  * French translation
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 06 May 2015 15:00:00 +0100
+
+lightdm-manager (0.6.9) debian; urgency=low
+
+  * Fix gettext bug
+
+ -- Arjen Balfoort <arjenbalfoort@solydxk.com>  Wed, 29 Apr 2015 18:00:00 +0100
+
 lightdm-manager (0.6.8) debian; urgency=low
 
   * GUI changes

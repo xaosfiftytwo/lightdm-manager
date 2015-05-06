@@ -1,6 +1,7 @@
 [Desktop Entry]
-Categories=System;
+Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
 Comment=Manager for LightDM
+Comment[fr]=Interface graphique pour LightDM
 Exec=lightdm-manager
 Icon=lightdm-manager
 Name=LightDM Manager

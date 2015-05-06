@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-01 20:20+0100\n"
+"POT-Creation-Date: 2015-04-29 17:46+0200\n"
 "PO-Revision-Date: 2014-04-22 11:25+0100\n"
 "Last-Translator: Schoelje <schoelje@solydxk.com>\n"
 "Language-Team: SolydXK <admin@solydxk.com>\n"
@@ -95,18 +95,18 @@ msgstr "Nieuwe achtergrond: %(bg)s"
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Auto-login gebruiker geselecteerd: %(usr)s"
 
-#: ../usr/lib/lightdm-manager/user.py:250
+#: ../usr/lib/lightdm-manager/user.py:249
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr "Kan groep '%(group)s' niet verwijderen: niet leeg."
 
-#: ../usr/lib/lightdm-manager/user.py:252
-#: ../usr/lib/lightdm-manager/user.py:324
+#: ../usr/lib/lightdm-manager/user.py:251
+#: ../usr/lib/lightdm-manager/user.py:323
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr "Het commando '%(cmd)s' retourneerde een error code: %(ret)d."
 
-#: ../usr/lib/lightdm-manager/user.py:322
+#: ../usr/lib/lightdm-manager/user.py:321
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."
