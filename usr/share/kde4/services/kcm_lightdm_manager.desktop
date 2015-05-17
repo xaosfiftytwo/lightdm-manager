@@ -1,0 +1,27 @@
+[Desktop Entry]
+Type=Service
+Icon=lightdm-manager
+Exec=lightdm-manager
+
+X-KDE-ServiceTypes=SystemSettingsExternalApp
+X-KDE-System-Settings-Parent-Category=system-administration 
+X-KDE-System-Settings-Parent-Category-V2=system-administration 
+X-KDE-ParentApp=lightdm-manager
+Categories=Qt;KDE;X-KDE-settings-system-administration;
+
+Name=LightDM Manager
+Name[ca]=Gestor del LightDM
+Name[cs]=LightDM Manager
+Name[de]=LightDM Manager
+Name[el]=Διαχειριστής οθόνης σύνδεσης LightDM
+Name[es]=Administrador de LightDM
+Name[fr]=LightDM Manager
+Name[it]=LightDM Manager
+Name[ja]=LightDM Manager
+Name[nl]=LightDM Manager
+Name[pl]=Menedżer LightDM
+Name[ru]=Менеджер LightDM
+Name[se]=LightDM Manager
+Name[tr]=LightDM Manager
+Comment=Manager for LightDM
+Comment[fr]=Interface graphique pour LightDM

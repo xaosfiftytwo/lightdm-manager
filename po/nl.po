@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 17:46+0200\n"
+"POT-Creation-Date: 2015-05-08 19:24+0200\n"
 "PO-Revision-Date: 2014-04-22 11:25+0100\n"
 "Last-Translator: Schoelje <schoelje@solydxk.com>\n"
 "Language-Team: SolydXK <admin@solydxk.com>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr "LightDM Manager"
@@ -114,6 +115,7 @@ msgstr ""
 "Kan gebruiker '%(user)s' niet verwijderen: er lopen nog processen die door "
 "deze gebruiker gestart zijn."
 
+#: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
 msgstr ""

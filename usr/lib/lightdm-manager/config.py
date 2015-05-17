@@ -6,6 +6,7 @@
 # OptionName = OptionValue
 
 import os
+from os.path import dirname, realpath, join, exists
 import configparser
 
 
@@ -14,14 +15,33 @@ class Config():
         firstChr = filePath[:1]
         if firstChr == '.' or firstChr != '/':
             # Assume only file name
-            curDir = os.path.dirname(os.path.realpath(__file__))
-            filePath = os.path.join(curDir, filePath)
+            curDir = dirname(realpath(__file__))
+            filePath = join(curDir, filePath)
         else:
-            curDir = os.path.dirname(filePath)
+            curDir = dirname(filePath)
 
         self.curDir = curDir
         self.filePath = filePath
-        self.parser = configparser.SafeConfigParser()
+
+        try:
+            if not exists(self.curDir):
+                os.makedirs(self.curDir)
+                print(("> new directory created: %s" % self.curDir))
+
+            if not exists(self.filePath):
+                with open(self.filePath, "w") as f:
+                    f.write("")
+                    print(("> new file created: %s" % self.filePath))
+        except Exception as detail:
+            print(("ERROR: cannot save configuration file: %s (%s)" % (self.filePath, detail)))
+
+        try:
+            if exists(self.filePath):
+                os.chmod(self.filePath, 0o666)
+        except:
+            pass
+
+        self.parser = configparser.ConfigParser(strict=False)
         self.parser.read([self.filePath])
 
     def getSections(self):
@@ -37,9 +57,8 @@ class Config():
 
     def removeSection(self, section):
         self.parser.remove_section(section)
-        f = open(self.filePath, "w")
-        self.parser.write(f)
-        f.close()
+        with open(self.filePath, "w") as f:
+            self.parser.write(f)
 
     def getOptions(self, section):
         options = []
@@ -49,9 +68,8 @@ class Config():
 
     def removeOption(self, section, option):
         self.parser.remove_option(section, option)
-        f = open(self.filePath, "w")
-        self.parser.write(f)
-        f.close()
+        with open(self.filePath, "w") as f:
+            self.parser.write(f)
 
     def getValue(self, section, option):
         value = ''
@@ -65,31 +83,22 @@ class Config():
                     value += v + '\n'
             else:
                 value = val
-        except:
-            value = ''
         return value
 
     def setValue(self, section, option, value):
         success = True
         value = str(value)
         try:
-            if not os.path.exists(self.curDir):
-                os.makedirs(self.curDir)
-
-            if not os.path.exists(self.filePath):
-                f = open(self.filePath, "w")
-                f.write("")
-                f.close()
-
             if not self.doesSectionExist(section):
                 # Create section first
+                print(("> create section %s" % section))
                 self.parser.add_section(section)
 
             self.parser.set(section, option, value)
-            f = open(self.filePath, "w")
-            self.parser.write(f)
-            f.close()
+            with open(self.filePath, "w") as f:
+                self.parser.write(f)
 
-        except Exception:
+        except Exception as detail:
+            print(("ERROR: cannot set configuration value: [%s]; %s=%s. %s" % (section, option, value, detail)))
             success = False
         return success

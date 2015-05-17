@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager 0.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 17:46+0200\n"
+"POT-Creation-Date: 2015-05-08 19:24+0200\n"
 "PO-Revision-Date: 2013-06-20 07:00+0100\n"
 "Last-Translator: Schoelje <schoelje@solydxk.com>\n"
 "Language-Team: SolydXK <admin@solydxk.com>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr "Menedżer LightDM"
@@ -116,6 +117,7 @@ msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""
 
+#: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
 msgstr ""
