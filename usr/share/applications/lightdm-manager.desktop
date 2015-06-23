@@ -2,6 +2,7 @@
 Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
 Comment=Manager for LightDM
 Comment[fr]=Interface graphique pour LightDM
+Comment[nl]=Manager voor Light
 Exec=lightdm-manager
 Icon=lightdm-manager
 Name=LightDM Manager

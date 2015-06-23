@@ -9,7 +9,6 @@ import sys
 import functions
 import getopt
 from shutil import copy
-import gettext
 from treeview import TreeViewHandler
 from dialogs import MessageDialogSafe, QuestionDialog, SelectImageDialog
 from config import Config
@@ -20,9 +19,10 @@ from combobox import ComboBoxHandler
 
 menuItems = ['users', 'appearance']
 
-# i18n
-gettext.install("lightdm-manager", "/usr/share/locale")
-#_ = gettext.gettext
+# i18n: http://docs.python.org/3/library/gettext.html
+import gettext
+from gettext import gettext as _
+gettext.textdomain('lightdm-manager')
 
 
 #class for the main window
