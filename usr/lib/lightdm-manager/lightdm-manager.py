@@ -355,13 +355,15 @@ class LightDMManager:
 
     def setBackground(self, path):
         # Set Background
-        if exists(path):
-            ih = ImageHandler(path)
-            ih.resizeImage(height=200)
-            self.imgBackground.set_from_pixbuf(ih.pixbuf)
+        if path is not None:
+            if exists(path):
+                ih = ImageHandler(path)
+                ih.resizeImage(height=200)
+                self.imgBackground.set_from_pixbuf(ih.pixbuf)
+            else:
+                self.imgBackground.set_from_file(self.selectImg)
         else:
             self.imgBackground.set_from_file(self.selectImg)
-
 
     # ===============================================
     # General functions
