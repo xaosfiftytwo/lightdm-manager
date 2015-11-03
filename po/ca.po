@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Eduard Selma <selma@tinet.cat>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Lightdm-manager 201406\n"
+"Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 13:44+0200\n"
-"PO-Revision-Date: 2014-06-28 13:38+0100\n"
+"POT-Creation-Date: 2015-11-03 16:49+0100\n"
+"PO-Revision-Date: 2015-10-22 19:39+0000\n"
 "Last-Translator: Eduard Selma <selma@tinet.cat>\n"
-"Language-Team: SolydXK <admin@solydxk.com>\n"
-"Language: \n"
+"Language-Team: Catalan (http://www.transifex.com/solydxk/lightdm-manager/"
+"language/ca/)\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Catalan\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
@@ -90,7 +90,7 @@ msgstr "Trieu una imatge de fons"
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
 msgid "New background: %(bg)s"
-msgstr "Fons nou: %(bg)s"
+msgstr "Imatge de fons nova: %(bg)s"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:317
 #, python-format
@@ -119,4 +119,4 @@ msgstr ""
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
-msgstr ""
+msgstr "Gestor per a LightDM "

@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Davide Favaro <belzebu87@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 13:44+0200\n"
-"PO-Revision-Date: 2013-12-24 11:10+0100\n"
-"Last-Translator: Schoelje <schoelje@solydxk.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: Italiano\n"
+"POT-Creation-Date: 2015-11-03 16:49+0100\n"
+"PO-Revision-Date: 2015-10-22 05:33+0000\n"
+"Last-Translator: Arjen Balfoort <schoelje@solydxk.com>\n"
+"Language-Team: Italian (http://www.transifex.com/solydxk/lightdm-manager/"
+"language/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
@@ -41,15 +43,15 @@ msgstr "Tema"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Hide users"
-msgstr ""
+msgstr "Nascondi utenti"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "User icon"
-msgstr ""
+msgstr "Icona utente"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Auto-login"
@@ -57,23 +59,20 @@ msgstr "Login automatico"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:189
 msgid "Select user image"
-msgstr ""
+msgstr "Seleziona immagine utente"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:237
-#, fuzzy
 msgid "LightDM settings"
-msgstr "LightDM Manager"
+msgstr "Impostazioni LightDM"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:237
-#, fuzzy
 msgid ""
 "Settings have changed\n"
 "\n"
 "Do you want to save the new settings?"
 msgstr ""
-"Le impostazioni dell'aspetto sono state modificate.\n"
-"\n"
-"Vuoi salvare le nuove impostazioni?"
+"Impostazioni modificate.\n"
+"Salvare le nuove impostazioni?"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "Saved"
@@ -81,12 +80,11 @@ msgstr "Salvato"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "LightDM settings saved successfully."
-msgstr ""
+msgstr "Impostazioni di LightDM salvate con successo."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:292
-#, fuzzy
 msgid "Choose background image"
-msgstr "Nessuno sfondo impostato"
+msgstr "Scegli immagine di sfondo"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
@@ -101,127 +99,23 @@ msgstr "Utente in login automatico selezionato: %(usr)s"
 #: ../usr/lib/lightdm-manager/user.py:249
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
-msgstr ""
+msgstr "Impossibile rimuovere il gruppo '%(group)s': non è vuoto."
 
 #: ../usr/lib/lightdm-manager/user.py:251
 #: ../usr/lib/lightdm-manager/user.py:323
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr ""
+msgstr "Il comando '%(cmd)s' ha restituito il codice d'errore: %(ret)d."
 
 #: ../usr/lib/lightdm-manager/user.py:321
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""
+"Impossibile rimuovere l'utente '%(user)s': alcuni processi avviati "
+"dall'utente sono ancora attivi."
 
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
-msgstr ""
-
-#~ msgid "Save"
-#~ msgstr "Salva"
-
-#~ msgid "Auto-login user"
-#~ msgstr "Utente in login automatico"
-
-#~ msgid ""
-#~ "The auto-login user has changed\n"
-#~ "\n"
-#~ "Do you want to save the new settings?"
-#~ msgstr ""
-#~ "L'utente in login automatico è stato cambiato.\n"
-#~ "\n"
-#~ "Vuoi salvare le nuove impostazioni?"
-
-#~ msgid ""
-#~ "Auto-login user saved:\n"
-#~ "\n"
-#~ "%(usr)s"
-#~ msgstr ""
-#~ "Utente in login automatico salvato:\n"
-#~ "\n"
-#~ "%(usr)s"
-
-#~ msgid "New auto-login user: %(usr)s"
-#~ msgstr "Nuovo utente in login automatico: %(usr)s"
-
-#~ msgid "Auto-login has been disabled."
-#~ msgstr "Il login automatico è stato disabilitato"
-
-#~ msgid "Auto-login disabled"
-#~ msgstr "Login automatico disabilitato"
-
-#~ msgid "Theme: %(theme)s"
-#~ msgstr "Tema: %(theme)s"
-
-#~ msgid "Background: %(bg)s"
-#~ msgstr "Sfondo: %(bg)s"
-
-#~ msgid ""
-#~ "LightDM appearance saved:\n"
-#~ "\n"
-#~ "%(msg)s"
-#~ msgstr ""
-#~ "Aspetto di LightDM salvato:\n"
-#~ "\n"
-#~ "%(msg)s"
-
-#~ msgid "Current background: %(bg)s"
-#~ msgstr "Sfondo attuale: %(bg)s"
-
-#~ msgid "New theme: %(theme)s"
-#~ msgstr "Nuovo tema: %(theme)s"
-
-#~ msgid "No Theme"
-#~ msgstr "Nessun tema"
-
-#~ msgid ""
-#~ "Directory does not contain a valid theme engine:\n"
-#~ "\n"
-#~ "Please, choose another theme."
-#~ msgstr ""
-#~ "La cartella non contiene un motore di temi valido:\n"
-#~ "\n"
-#~ "Per favore, sceglere un altro tema."
-
-#~ msgid "No valid theme: %(dir)s"
-#~ msgstr "Nessun tema valido: %(dir)s"
-
-#~ msgid "Images"
-#~ msgstr "Immagini"
-
-#~ msgid "Write debug information to file: %(path)s"
-#~ msgstr "Scrivere le informazioni di debug nel file: %(path)s"
-
-#~ msgid "Machine info: %(info)s"
-#~ msgstr "Informazioni macchina: %(info)s"
-
-#~ msgid "lightdm-manager version: %(version)s"
-#~ msgstr "Versione lightdm-manager: %(version)s"
-
-#~ msgid "Please enter your password"
-#~ msgstr "Per favore, digitare la password"
-
-#~ msgid "LightDM Manager - Live environment"
-#~ msgstr "LightDM Manager - Live environment"
-
-#~ msgid ""
-#~ "LightDM Manager cannot run in a live environment\n"
-#~ "\n"
-#~ "To force start, use the --force argument"
-#~ msgstr ""
-#~ "LightDM Manager non può essere eseguito in un live environment\n"
-#~ "\n"
-#~ "Per forzarne l'avvio, usare l'argomento --force"
-
-#~ msgid "LightDM Manager - Debian based"
-#~ msgstr "LightDM Manager - Debian based"
-
-#~ msgid "LightDM Manager can only run on Debian based distributions"
-#~ msgstr ""
-#~ "LightDM Manager può essere eseguito solo in distribuzioni basate su Debian"
-
-#~ msgid "LightDM not installed - quitting."
-#~ msgstr "LightDM non installato - uscita."
+msgstr "Manager di LightDM"

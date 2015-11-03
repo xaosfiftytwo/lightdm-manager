@@ -1,22 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Ilinsky Mikhail <mail@milinsky.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: LightDM Manager\n"
+"Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 13:44+0200\n"
-"PO-Revision-Date: 2014-06-26 09:56+0100\n"
-"Last-Translator: Igor Cheprasov <i-cheprasov@live.ru>\n"
-"Language-Team: SolydXK <admin@solydxk.com>\n"
+"POT-Creation-Date: 2015-11-03 16:49+0100\n"
+"PO-Revision-Date: 2015-10-22 15:10+0000\n"
+"Last-Translator: Ilinsky Mikhail <mail@milinsky.com>\n"
+"Language-Team: Russian (http://www.transifex.com/solydxk/lightdm-manager/"
+"language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:64
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
@@ -42,15 +45,15 @@ msgstr "Тема"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Hide users"
-msgstr ""
+msgstr "Скрыть пользователей."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "User icon"
-msgstr ""
+msgstr "Аватар"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Auto-login"
@@ -58,15 +61,13 @@ msgstr "Авто-логин"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:189
 msgid "Select user image"
-msgstr ""
+msgstr "Выберите изображение пользователя"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:237
-#, fuzzy
 msgid "LightDM settings"
 msgstr "Менеджер LightDM"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:237
-#, fuzzy
 msgid ""
 "Settings have changed\n"
 "\n"
@@ -82,12 +83,11 @@ msgstr "Сохранено"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:288
 msgid "LightDM settings saved successfully."
-msgstr ""
+msgstr "LightDM настройки успешно сохранены."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:292
-#, fuzzy
 msgid "Choose background image"
-msgstr "Заставка не установлена"
+msgstr "Выбрать фоновое изображение"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:295
 #, python-format
@@ -102,127 +102,23 @@ msgstr "Пользователь для авто-логина: %(usr)s"
 #: ../usr/lib/lightdm-manager/user.py:249
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
-msgstr ""
+msgstr "Не удалось удалить группу '%(group)s':группа не пуста."
 
 #: ../usr/lib/lightdm-manager/user.py:251
 #: ../usr/lib/lightdm-manager/user.py:323
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr ""
+msgstr "Команда '%(cmd)s' вернула код ошибки: %(ret)d."
 
 #: ../usr/lib/lightdm-manager/user.py:321
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""
+"Не удалось удалить пользователя '%(user)s':пользовательские процессы все еще "
+"запущены."
 
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
-msgstr ""
-
-#~ msgid "Save"
-#~ msgstr "Сохранить"
-
-#~ msgid "Auto-login user"
-#~ msgstr "Авто-логин пользователя"
-
-#~ msgid ""
-#~ "The auto-login user has changed\n"
-#~ "\n"
-#~ "Do you want to save the new settings?"
-#~ msgstr ""
-#~ "Пользователь для авто-логина изменен\n"
-#~ "\n"
-#~ "Хотите сохранить новые настройки?"
-
-#~ msgid ""
-#~ "Auto-login user saved:\n"
-#~ "\n"
-#~ "%(usr)s"
-#~ msgstr ""
-#~ "Авто-логин пользователя сохранен:\n"
-#~ "\n"
-#~ "%(usr)s"
-
-#~ msgid "New auto-login user: %(usr)s"
-#~ msgstr "Новый авто-логин пользователя: %(usr)s"
-
-#~ msgid "Auto-login has been disabled."
-#~ msgstr "Авто-логин был отключен."
-
-#~ msgid "Auto-login disabled"
-#~ msgstr "Авто-логин отключен"
-
-#~ msgid "Theme: %(theme)s"
-#~ msgstr "Тема: %(theme)s"
-
-#~ msgid "Background: %(bg)s"
-#~ msgstr "Заставка: %(bg)s"
-
-#~ msgid ""
-#~ "LightDM appearance saved:\n"
-#~ "\n"
-#~ "%(msg)s"
-#~ msgstr ""
-#~ "Внешний вид LightDM сохранен:\n"
-#~ "\n"
-#~ "%(msg)s"
-
-#~ msgid "Current background: %(bg)s"
-#~ msgstr "Текущая заставка: %(bg)s"
-
-#~ msgid "New theme: %(theme)s"
-#~ msgstr "Новая тема: %(theme)s"
-
-#~ msgid "No Theme"
-#~ msgstr "Нет темы"
-
-#~ msgid ""
-#~ "Directory does not contain a valid theme engine:\n"
-#~ "\n"
-#~ "Please, choose another theme."
-#~ msgstr ""
-#~ "Директория не содержит подходящих тем:\n"
-#~ "\n"
-#~ "Пожалуйста, выберите другую тему."
-
-#~ msgid "No valid theme: %(dir)s"
-#~ msgstr "Нет подходящих тем: %(dir)s"
-
-#~ msgid "Images"
-#~ msgstr "Изображения"
-
-#~ msgid "Write debug information to file: %(path)s"
-#~ msgstr "Записывать отладочную информацию в файл: %(path)s"
-
-#~ msgid "Machine info: %(info)s"
-#~ msgstr "Информация о компьютере: %(info)s"
-
-#~ msgid "lightdm-manager version: %(version)s"
-#~ msgstr "Менеджер LightDM - версия: %(version)s"
-
-#~ msgid "Please enter your password"
-#~ msgstr "Введите пароль"
-
-#~ msgid "LightDM Manager - Live environment"
-#~ msgstr "Менеджер LightDM - Live-режим"
-
-#~ msgid ""
-#~ "LightDM Manager cannot run in a live environment\n"
-#~ "\n"
-#~ "To force start, use the --force argument"
-#~ msgstr ""
-#~ "Менеджер LightDM не может быть запущен в live-режиме\n"
-#~ "\n"
-#~ "Для принудительного запуска используйте --force"
-
-#~ msgid "LightDM Manager - Debian based"
-#~ msgstr "LightDM Manager - Debian-based"
-
-#~ msgid "LightDM Manager can only run on Debian based distributions"
-#~ msgstr ""
-#~ "Менеджер LightDM может быть запущен только в Debian-based дистрибутивах"
-
-#~ msgid "LightDM not installed - quitting."
-#~ msgstr "LightDM не установлен - выход."
+msgstr "Менеджер для LightDM"
