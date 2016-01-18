@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 13:44+0200\n"
+"POT-Creation-Date: 2015-12-02 12:45+0100\n"
 "PO-Revision-Date: 2013-10-03 10:24+0100\n"
 "Last-Translator: Schoelje <schoelje@solydxk.com>\n"
 "Language-Team: SolydXK <admin@solydxk.com>\n"
@@ -18,54 +18,54 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr "Διαχειριστής οθόνης σύνδεσης LightDM"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Users"
 msgstr "Χρήστες"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "Background"
 msgstr "Παρασκήνιο"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Theme"
 msgstr "Θέμα"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:74
 msgid "Menu"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:75
 msgid "Hide users"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:76
 msgid "User icon"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:77
 msgid "Auto-login"
 msgstr "Αυτόματη σύνδεση"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:193
 msgid "Select user image"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 #, fuzzy
 msgid "LightDM settings"
 msgstr "Διαχειριστής οθόνης σύνδεσης LightDM"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 #, fuzzy
 msgid ""
 "Settings have changed\n"
@@ -76,41 +76,41 @@ msgstr ""
 "\n"
 "Θέλετε να αποθηκεύσετε τις νέες ρυθμίσεις;"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Saved"
 msgstr "Αποθηκεύτηκε"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "LightDM settings saved successfully."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
 #, fuzzy
 msgid "Choose background image"
 msgstr "Δεν ορίστηκε παρασκήνιο"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:299
 #, python-format
 msgid "New background: %(bg)s"
 msgstr "Νεό παρασκήνιο: %(bg)s"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:321
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Επιλέχθηκε ο χρήστης τής αυτόματης σύνδεσης: %(usr)s"
 
-#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:253
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/user.py:251
-#: ../usr/lib/lightdm-manager/user.py:323
+#: ../usr/lib/lightdm-manager/user.py:255
+#: ../usr/lib/lightdm-manager/user.py:327
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/user.py:321
+#: ../usr/lib/lightdm-manager/user.py:325
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."

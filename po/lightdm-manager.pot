@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 16:49+0100\n"
+"POT-Creation-Date: 2016-01-18 17:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,93 +17,93 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Users"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Appearance"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "Background"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Theme"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:74
 msgid "Menu"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:75
 msgid "Hide users"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:76
 msgid "User icon"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:77
 msgid "Auto-login"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:193
 msgid "Select user image"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid "LightDM settings"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid ""
 "Settings have changed\n"
 "\n"
 "Do you want to save the new settings?"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Saved"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "LightDM settings saved successfully."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
 msgid "Choose background image"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:299
 #, python-format
 msgid "New background: %(bg)s"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:321
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:253
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/user.py:251
-#: ../usr/lib/lightdm-manager/user.py:323
+#: ../usr/lib/lightdm-manager/user.py:255
+#: ../usr/lib/lightdm-manager/user.py:327
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr ""
 
-#: ../usr/lib/lightdm-manager/user.py:321
+#: ../usr/lib/lightdm-manager/user.py:325
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."

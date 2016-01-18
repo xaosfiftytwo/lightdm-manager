@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 13:44+0200\n"
+"POT-Creation-Date: 2015-12-02 12:45+0100\n"
 "PO-Revision-Date: 2014-08-23 13:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,60 +17,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr "LightDM Manager"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 #, fuzzy
 msgid "Users"
 msgstr "Användare"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 #, fuzzy
 msgid "Appearance"
 msgstr "Utseende"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 #, fuzzy
 msgid "Background"
 msgstr "Bakgrund"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 #, fuzzy
 msgid "Theme"
 msgstr "Tema"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:74
 #, fuzzy
 msgid "Menu"
 msgstr "Meny"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:75
 msgid "Hide users"
 msgstr "Dölj användare"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:76
 msgid "User icon"
 msgstr "användarikon"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:77
 #, fuzzy
 msgid "Auto-login"
 msgstr "Inloggningsnamn: "
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:193
 #, fuzzy
 msgid "Select user image"
 msgstr "Välj bild"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid "LightDM settings"
 msgstr "LightDM inställningar"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid ""
 "Settings have changed\n"
 "\n"
@@ -80,41 +80,41 @@ msgstr ""
 "\n"
 "Vill du spara de nya inställningarna?"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 #, fuzzy
 msgid "Saved"
 msgstr "Sparad"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "LightDM settings saved successfully."
 msgstr "LightDM inställningarna har sparats utan problem."
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
 msgid "Choose background image"
 msgstr "Välj bakgrundsbild"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:299
 #, python-format
 msgid "New background: %(bg)s"
 msgstr "Ny bakgrund: %(bg)s"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:321
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Automatisk login användare vald: %(usr)s"
 
-#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:253
 #, fuzzy, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr "Kan inte ta bort gruppen '%(group)s': gruppen är inte tom."
 
-#: ../usr/lib/lightdm-manager/user.py:251
-#: ../usr/lib/lightdm-manager/user.py:323
+#: ../usr/lib/lightdm-manager/user.py:255
+#: ../usr/lib/lightdm-manager/user.py:327
 #, fuzzy, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr "Kommandot '%(cmd)s' gav följande felkod: %(ret)d."
 
-#: ../usr/lib/lightdm-manager/user.py:321
+#: ../usr/lib/lightdm-manager/user.py:325
 #, fuzzy, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."

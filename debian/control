@@ -3,12 +3,13 @@ Section: admin
 Priority: optional
 Maintainer: Arjen Balfoort <arjenbalfoort@solydxk.com>
 Build-Depends: debhelper (>= 9)
-  , python
+  , python3 (>= 3.2)
   , intltool
-X-Python-Version: >= 2.7
+  , transifex-client
+  , translate-toolkit
 X-Python3-Version: >= 3.2
-Standards-Version: 3.9.5
-Vcs-Git: git://github.com/SolydXK/lightdm-manager.git
+Standards-Version: 3.9.6
+Vcs-Git: git@github.com:SolydXK/lightdm-manager.git
 Vcs-Browser: https://github.com/SolydXK/lightdm-manager
 
 Package: lightdm-manager

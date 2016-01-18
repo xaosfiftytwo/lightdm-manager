@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 16:49+0100\n"
+"POT-Creation-Date: 2015-12-02 12:45+0100\n"
 "PO-Revision-Date: 2015-10-22 15:10+0000\n"
 "Last-Translator: Ilinsky Mikhail <mail@milinsky.com>\n"
 "Language-Team: Russian (http://www.transifex.com/solydxk/lightdm-manager/"
@@ -21,53 +21,53 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:64
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
 msgstr "Менеджер LightDM"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:66
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Users"
 msgstr "Пользователи"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:67
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:68
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "Background"
 msgstr "Фон"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:69
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Theme"
 msgstr "Тема"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:70
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:74
 msgid "Menu"
 msgstr "Меню"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:71
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:75
 msgid "Hide users"
 msgstr "Скрыть пользователей."
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:72
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:76
 msgid "User icon"
 msgstr "Аватар"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:73
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:77
 msgid "Auto-login"
 msgstr "Авто-логин"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:189
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:193
 msgid "Select user image"
 msgstr "Выберите изображение пользователя"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid "LightDM settings"
 msgstr "Менеджер LightDM"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:237
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid ""
 "Settings have changed\n"
 "\n"
@@ -77,40 +77,40 @@ msgstr ""
 "\n"
 "Хотите сохранить новые настройки?"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Saved"
 msgstr "Сохранено"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:288
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "LightDM settings saved successfully."
 msgstr "LightDM настройки успешно сохранены."
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:292
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:296
 msgid "Choose background image"
 msgstr "Выбрать фоновое изображение"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:295
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:299
 #, python-format
 msgid "New background: %(bg)s"
 msgstr "Новая заставка: %(bg)s"
 
-#: ../usr/lib/lightdm-manager/lightdm-manager.py:317
+#: ../usr/lib/lightdm-manager/lightdm-manager.py:321
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
 msgstr "Пользователь для авто-логина: %(usr)s"
 
-#: ../usr/lib/lightdm-manager/user.py:249
+#: ../usr/lib/lightdm-manager/user.py:253
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
 msgstr "Не удалось удалить группу '%(group)s':группа не пуста."
 
-#: ../usr/lib/lightdm-manager/user.py:251
-#: ../usr/lib/lightdm-manager/user.py:323
+#: ../usr/lib/lightdm-manager/user.py:255
+#: ../usr/lib/lightdm-manager/user.py:327
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
 msgstr "Команда '%(cmd)s' вернула код ошибки: %(ret)d."
 
-#: ../usr/lib/lightdm-manager/user.py:321
+#: ../usr/lib/lightdm-manager/user.py:325
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."

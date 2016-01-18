@@ -3,67 +3,68 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# BALLOON a.k.a. Fu-sen., 2015
+# Luis Filipe Teixeira <lufilte@gmail.com>, 2015
+# Nuno Duarte <nuno.passiano@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: lightdm-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-02 12:45+0100\n"
-"PO-Revision-Date: 2015-11-07 03:10+0000\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen.\n"
-"Language-Team: Japanese (http://www.transifex.com/solydxk/lightdm-manager/"
-"language/ja/)\n"
-"Language: ja\n"
+"POT-Creation-Date: 2016-01-18 17:43+0100\n"
+"PO-Revision-Date: 2015-12-11 16:58+0000\n"
+"Last-Translator: Luis Filipe Teixeira <lufilte@gmail.com>\n"
+"Language-Team: Portuguese (http://www.transifex.com/solydxk/lightdm-manager/"
+"language/pt/)\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:68
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:1
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:2
 msgid "LightDM Manager"
-msgstr "LightDM マネージャー"
+msgstr "Gestor LightDM"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:70
 msgid "Users"
-msgstr "ユーザー"
+msgstr "Utilizadores "
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:71
 msgid "Appearance"
-msgstr "アピリアランス"
+msgstr "Aparência"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:72
 msgid "Background"
-msgstr "背景"
+msgstr "Ambiente"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:73
 msgid "Theme"
-msgstr "テーマ"
+msgstr "Tema"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:74
 msgid "Menu"
-msgstr "メニュー"
+msgstr "Menu"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:75
 msgid "Hide users"
-msgstr "ユーザーを非表示"
+msgstr "Esconder utilizadores "
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:76
 msgid "User icon"
-msgstr "ユーザーアイコン"
+msgstr "Ícone do utilizador"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:77
 msgid "Auto-login"
-msgstr "自動ログイン"
+msgstr "Login automático"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:193
 msgid "Select user image"
-msgstr "ユーザー画像を選択"
+msgstr "Selecionar a imagem de utilizador"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid "LightDM settings"
-msgstr "LightDM 設定"
+msgstr "Configurações de LightDM"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:241
 msgid ""
@@ -71,51 +72,52 @@ msgid ""
 "\n"
 "Do you want to save the new settings?"
 msgstr ""
-"設定は変更されました\n"
+"As configurações foram alteradas\n"
 "\n"
-"新たな設定を保存しますか？"
+"Deseja salvar as novas configurações?"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "Saved"
-msgstr "保存しました"
+msgstr "Guardado"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:292
 msgid "LightDM settings saved successfully."
-msgstr "LightDM の設定を保存しました。"
+msgstr "Configurações do LightDM guardadas com sucesso."
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:296
 msgid "Choose background image"
-msgstr "背景画像を選んで下さい"
+msgstr "Escolha imagem de fundo"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:299
 #, python-format
 msgid "New background: %(bg)s"
-msgstr "新たな背景: %(bg)s"
+msgstr "Novo fundo: %(bg)s"
 
 #: ../usr/lib/lightdm-manager/lightdm-manager.py:321
 #, python-format
 msgid "Auto-login user selected: %(usr)s"
-msgstr "自動ログインユーザー: %(usr)s"
+msgstr "Selecionado Auto-login do utilizador: %(usr)s"
 
 #: ../usr/lib/lightdm-manager/user.py:253
 #, python-format
 msgid "Cannot remove group '%(group)s': not empty."
-msgstr "グループ '%(group)s' を削除できません: 存在しません"
+msgstr "Não se pode remover o grupo '%(group)s': não está vazio."
 
 #: ../usr/lib/lightdm-manager/user.py:255
 #: ../usr/lib/lightdm-manager/user.py:327
 #, python-format
 msgid "The command '%(cmd)s' returned error code: %(ret)d."
-msgstr "コマンド '%(cmd)s' はエラーを返しました: %(ret)d"
+msgstr "O comando '%(cmd)s' retornou o código de erro: %(ret)d."
 
 #: ../usr/lib/lightdm-manager/user.py:325
 #, python-format
 msgid ""
 "Cannot remove user '%(user)s': processes started by user are still running."
 msgstr ""
-"ユーザーを削除できません '%(user)s': ユーザーによってプロセスが動作しています"
+"Não se pode remover o utilizador '%(user)s': processos iniciados pelo o "
+"utilizador, estão ainda em execução."
 
 #: ../usr/share/kde4/services/kcm_lightdm_manager.desktop.in.h:2
 #: ../usr/share/applications/lightdm-manager.desktop.in.h:1
 msgid "Manager for LightDM"
-msgstr "LightDM の管理"
+msgstr "Gestor para LightDM"

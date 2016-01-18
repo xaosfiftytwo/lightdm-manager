@@ -1,5 +1,9 @@
 #! /usr/bin/env python3
 
+# Make sure the right Gtk version is loaded
+import gi
+gi.require_version('Gtk', '3.0')
+
 # from gi.repository import Gtk, GdkPixbuf, GObject, Pango, Gdk
 from gi.repository import Gtk, Gdk, GdkPixbuf
 # abspath, dirname, join, expanduser, exists, basename
